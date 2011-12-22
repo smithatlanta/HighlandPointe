@@ -1,0 +1,204 @@
+back-color = #E8E8E8
+back-body-color = #C8C8C8
+back-h3-color = #2a6da9
+div-border-color = #2a6da9
+
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  border-radius n
+
+gradient(a, b)
+  background -moz-linear-gradient(top, a, b)
+  background -webkit-gradient(linear, left top, left bottom, from(a), to(b))
+
+header-border()
+  background back-color
+  border-style solid
+  border-color div-border-color
+  border-width 1px
+
+h3-adjust()
+  color white
+  height 20px
+  top -15px
+
+soc-image-adjust()
+  height 50px
+  width 50px
+
+body
+  font 12px Georgia serif
+  background-color back-body-color
+
+a
+  font 15px Georgia serif
+p
+  font 14px Georgia serif
+
+#top
+  position absolute
+  top 2px
+  left 10px
+  height 135px
+  width 1014px
+  border-style solid
+  border-color div-border-color
+  border-width 1px
+  background-color white
+  border-radius(10px)
+
+#left
+  position absolute
+  top 142px
+  left 10px
+  height 550px
+  width 190px
+
+#center
+  position absolute
+  top 142px
+  left 202px
+  height 550px
+  width 822px
+  header-border()
+  border-radius(10px)
+
+#bottom
+  position absolute
+  top 698px
+  left 10px
+  height 30px
+  width 1014px
+  border-style solid
+  border-color div-border-color
+  border-width 1px
+  background-color white
+  border-radius(10px)
+
+#topcenter
+  position relative
+  top 10px
+
+#lgtop1
+  position relative
+  top 5px
+  left 10px
+  
+#sptop1
+  position relative
+  font italic 28px Georgia serif
+  color black
+  left 40px
+  top -20px
+
+#spacer
+  height 8px
+
+#leftloginheader
+  position relative
+  height 150px
+  header-border()
+  border-radius(10px)
+
+#h3leftlogin
+  position relative
+  h3-adjust()
+  background back-h3-color
+  gradient(#55aaee, #003366)
+  border-radius(10px)
+
+#leftloginbody
+  position relative
+  left 20px
+
+#leftresourcesheader
+  position relative
+  height 135px
+  header-border()
+  border-radius(10px)
+
+#h3leftresources
+  position relative
+  h3-adjust()
+  background back-h3-color
+  gradient(#55aaee, #003366)
+  border-radius(10px)
+
+#leftresourcesbody
+  position relative
+  overflow scroll
+  top -25px
+  left 40px
+  height 112px
+  width 140px
+
+#leftupcomingheader
+  position relative
+  height 160px
+  header-border()
+  border-radius(10px)
+
+#h3leftupcoming
+  position relative
+  h3-adjust()
+  background back-h3-color
+  gradient(#55aaee, #003366)
+  border-radius(10px)
+
+#leftupcomingbody
+  position relative
+  left 2px
+  top -25px
+  height 140px
+
+#leftsocializeheader
+  position relative
+  height 75px
+  header-border()
+  border-radius(10px)
+
+#h3leftsocialize
+  position relative
+  h3-adjust()
+  background back-h3-color
+  gradient(#55aaee, #003366)
+  border-radius(10px)
+
+#leftsocializebody
+  position relative
+  top -25px
+  left 16px
+
+#lgleftsoc1
+  soc-image-adjust()
+	
+#lgleftsoc2
+  soc-image-adjust()
+
+#lgleftsoc3
+  soc-image-adjust()
+
+#centerheader
+  position relative
+
+#h3centergoings
+  position relative
+  h3-adjust()
+  background div-border-color
+  gradient(#55aaee, #003366)
+  border-radius(10px)
+
+#centerbody
+  position relative
+  top -15px
+  left 10px
+  overflow scroll
+  height 500px
+  width 810px
+
+#bottomcenter
+  position relative
+  top 10px
+  left 275px
+  width 702px

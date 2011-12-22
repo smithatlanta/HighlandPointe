@@ -1,0 +1,64 @@
+!!!
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= title
+  body
+    #top
+      #topcenter
+        img(id='lgtop1', src='/images/SmallTransparentLogo.gif')
+        span(id='sptop1') Highland Pointe
+    #left
+      #leftloginheader
+        h3(id='h3leftlogin') Login
+        #leftloginbody
+          text Username
+          br
+          input
+          br
+          text Password
+          br
+          input
+          br
+          button Login
+      #spacer
+      #leftresourcesheader
+        h3(id='h3leftresources') Resources
+        #leftresourcesbody
+          a(href='/eventcalendar') Event Calendar
+          br
+          a(href='/contacts') Contact
+          br
+          a(href='/tennis') Tennis
+          br
+          a(href='/pool') Pool
+          br
+          a(href='/clubhouse') Clubhouse
+          br
+          a(href='/socialevents') Social Events
+          br
+          a(href='/acc') ACC
+          br
+          a(href='/board') Board
+      #spacer
+      #leftupcomingheader
+        h3(id='h3leftupcoming') Upcoming Events
+        #leftupcomingbody
+          iframe(src='https://www.google.com/calendar/b/0/embed?src=highlandpointe@gmail.com&src=03n0lqhlvftvqslf2bai6rfmd0@group.calendar.google.com&src=aqm1jbopopf53q4bbtpfmb3bo4@group.calendar.google.com&showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&wkst=1&bgcolor=%23E8E8E8&color=%23E8E8E8&ctz=America%2FNew_York&height=135', style='border-width: 0;', width='180', frameborder='0', height='135')
+      #spacer
+      #leftsocializeheader
+        h3(id='h3leftsocialize') Social
+        #leftsocializebody
+          a(href='http://www.facebook.com/pages/Highland-Pointe/106229682771352') 
+            img(id='lgleftsoc1', src='/images/facebook_badge.png')
+          a(href='https://twitter.com/#!/HighlandPteEC')
+            img(id='lgleftsoc2', src='/images/twitter_badge.png')
+          img(id='lgleftsoc3', src='/images/rss_badge.png')
+    #center
+      #centerheader
+        h3(id='h3centergoings') What's happening at the Pointe!
+        #centerbody
+          #container!= body
+    #bottom
+      #bottomcenter
+        text © 2012 Highland Pointe Recreation Association, Inc. All rights reserved.      
