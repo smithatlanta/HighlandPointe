@@ -53,5 +53,5 @@ app.get('/socialevents', socialevents.index);
 app.get('/acc', acc.index);
 app.get('/board', board.index);
 
-app.listen(3000);
+app.listen(80);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

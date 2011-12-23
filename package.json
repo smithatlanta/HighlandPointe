@@ -5,7 +5,7 @@
   , "dependencies": {
       "express": "latest"
     , "jade": "latest"
-	, "stylus": "latest"
-	, "mongoose": "latest"
+    , "stylus": "latest"
+    , "mongoose": "latest"
   }
 }
