@@ -1,0 +1,421 @@
+!!! transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title Highland Pointe Map
+    meta(http-equiv='Content-Type', content='text/html; charset=iso-8859-1')
+    style(type='text/css')
+      DIV.imgDiv {
+      position:absolute;
+      top:0px;
+      left:0px;
+      }
+      TABLE.opacityCtrlVisible {
+      background-color:black;
+      border:1px;
+      border-color:gray;
+      border-style:solid;
+      }
+      TABLE.opacityCtrlHidden {
+      background-color:black;
+      border:1px;
+      border-color:red;
+      border-style:solid;
+      }
+      TABLE.progress {
+      width:100px;
+      height:10px;
+      border:1px;
+      border-color:gray;
+      border-style:solid;
+      }
+      TD.labelTd {
+      text-align:center;
+      white-space:nowrap;
+      color:white;
+      font-size:10pt;
+      font-family: "Arial", "sans-serif";
+      vertical-align:top;
+      height:10px;
+      overflow:hidden;
+      }
+      TD.minMax {
+      text-align:center;
+      white-space:nowrap;
+      color:white;
+      font-size:8pt;
+      font-family: "Arial", "sans-serif";
+      vertical-align:middle;
+      }
+    script(type='text/javascript')
+      function adjustOpacity( evt, idSuffix )
+      {
+      elTd            = document.getElementById("td" + "_" + idSuffix);
+      elProgress      = document.getElementById("progress" + "_" + idSuffix);
+      elFill          = document.getElementById("fill" + "_" + idSuffix);
+      elEmpty         = document.getElementById("empty" + "_" + idSuffix);
+      elImageDiv_Main = document.getElementById("imageDiv_Main")
+      fillPercent = (evt.clientX - elTd.offsetLeft - elProgress.offsetLeft - elImageDiv_Main.offsetLeft - elFill.offsetLeft );
+      //  alert('percent = ' + fillPercent );
+      fillPercent = (fillPercent > 100 ) ? 100 : fillPercent;
+      fillPercent = (fillPercent < 0   ) ? 0 : fillPercent;
+      adjustControl( elFill, elEmpty, fillPercent );
+      setOpacity( 'imageDiv_' + idSuffix, fillPercent );
+      }
+      function adjustControl( elFill, elEmpty, fillPercent )
+      {
+      fillPercentStr = fillPercent + "%";
+      elFill.style.width  = fillPercentStr;
+      elFill.style.backgroundColor="white";
+      elEmpty.style.width = 100-fillPercent + "%";
+      }
+      function setOpacity( divName, opacity )
+      {
+      divToSet = document.getElementById(divName)
+      opacity = (opacity == 100)?99.999:opacity;
+      // IE/Win
+      divToSet.style.filter = "alpha(opacity:"+opacity+")";
+      // Safari<1.2, Konqueror
+      divToSet.style.KHTMLOpacity = opacity/100;
+      // Older Mozilla and Firefox
+      divToSet.style.MozOpacity = opacity/100;
+      // Safari 1.2, newer Firefox and Mozilla, CSS3
+      divToSet.style.opacity = opacity/100;
+      }
+      function shiftControl()
+      {
+      elLayerControlTable = document.getElementById("layerControlTable");
+      elLayerControlCell  = document.getElementById("layerControlCell");
+      elLayerControlDiv   = document.getElementById("layerControlDiv");
+      elLayerControlImage = document.getElementById("layerControlImage");
+      if( elLayerControlDiv.offsetWidth > 30 )
+      {
+      controlWidth = elLayerControlCell.offsetWidth;
+      elLayerControlDiv.style.width         = controlWidth + 2 + "px";
+      elLayerControlImage.title             = "Show layer control";
+      elLayerControlImage.src               = "Expand.gif";
+      elLayerControlTable.style.border      = "none";
+      elLayerControlCell.style.borderColor  = "red";
+      elLayerControlCell.style.borderStyle  = "solid";
+      elLayerControlCell.style.borderWidth  = "1px";
+      elLayerControlImage.blur();
+      }
+      else
+      {
+      elLayerControlDiv.style.width         = "100%";
+      elLayerControlImage.title             = "Hide layer control";
+      elLayerControlImage.src               = "Collapse.gif";
+      elLayerControlCell.style.border       = "none";
+      elLayerControlTable.style.borderColor = "gray";
+      elLayerControlTable.style.borderStyle = "solid";
+      elLayerControlTable.style.borderWidth = "1px";
+      elLayerControlImage.blur();
+      }
+      }
+      function hideLayerControl()
+      {
+      elLayerControlTable = document.getElementById("layerControlTable");
+      elLayerControlCell  = document.getElementById("layerControlCell");
+      elLayerControlDiv   = document.getElementById("layerControlDiv");
+      elLayerControlImage = document.getElementById("layerControlImage");
+      controlWidth = elLayerControlCell.offsetWidth;
+      divWidth = elLayerControlDiv.style.width;
+      idxUnits = divWidth.indexOf("%");
+      if( idxUnits != -1 )
+      divWidth = divWidth.substring( 0, idxUnits );
+      else
+      {
+      idxUnits = divWidth.indexOf("px");
+      if( idxUnits != -1 )
+      divWidth = divWidth.substring( 0, idxUnits );
+      else
+      divWidth = 100;
+      }
+      if( elLayerControlImage.src.indexOf("Collapse.gif") != -1 )
+      {
+      if( divWidth > 10 )
+      {
+      divWidth /= 2;
+      divWidth += "%";
+      setTimeout("javascript:hideLayerControl()", 40);
+      }
+      else
+      {
+      divWidth = controlWidth + 2 + "px";
+      elLayerControlImage.title             = "Show layer control";
+      elLayerControlImage.src               = "Expand.gif";
+      elLayerControlTable.style.border      = "none";
+      elLayerControlCell.style.borderColor  = "red";
+      elLayerControlCell.style.borderStyle  = "solid";
+      elLayerControlCell.style.borderWidth  = "1px";
+      elLayerControlImage.blur();
+      }
+      }
+      else
+      {
+      elLayerControlCell.style.border       = "none";
+      elLayerControlTable.style.borderColor = "gray";
+      elLayerControlTable.style.borderStyle = "solid";
+      elLayerControlTable.style.borderWidth = "1px";
+      if( divWidth < 50 )
+      {
+      divWidth *= 1.5;
+      divWidth += "%";
+      setTimeout("javascript:hideLayerControl()", 40);
+      }
+      else
+      {
+      divWidth = "100%";
+      elLayerControlImage.title             = "Hide layer control";
+      elLayerControlImage.src               = "Collapse.gif";
+      elLayerControlImage.blur();
+      }
+      }
+      elLayerControlDiv.style.width         = divWidth;
+      }
+      function initializeLayerControl()
+      {
+      initializeOpacityControl('AerialPhoto');
+      initializeOpacityControl('Lakes');
+      initializeOpacityControl('RecCommonAreas');
+      initializeOpacityControl('LotBoundaries');
+      initializeOpacityControl('Addresses');
+      initializeOpacityControl('Streets');
+      initializeOpacityControl('ElevationContours');
+      initializeOpacityControl('LotNumbers');
+      initializeOpacityControl('TanksTowers');
+      initializeOpacityControl('TrailSystem');
+      }
+      function initializeOpacityControl( idSuffix )
+      {
+      elImgDiv  = document.getElementById('imageDiv_' + idSuffix);
+      elFill    = document.getElementById("fill" + "_" + idSuffix);
+      elEmpty   = document.getElementById("empty" + "_" + idSuffix);
+      if( elImgDiv.style.opacity )
+      adjustControl( elFill, elEmpty, 0 );
+      else
+      {
+      if( elImgDiv.style.filter )
+      adjustControl( elFill, elEmpty, 0 );
+      else
+      adjustControl( elFill, elEmpty, 100 );
+      }
+      }
+  body(bgcolor='black', onload='javascript:initializeLayerControl()')
+    #imageDiv_Main(style='position: absolute; text-align: left; background-color: black; color: white; top: 0px; left: 5px;')
+      #imageDiv_AerialPhoto.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='AerialPhoto.jpg')
+      #imageDiv_Lakes.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='Lakes.png')
+      #imageDiv_RecCommonAreas.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='RecCommonAreas.png')
+      #imageDiv_LotBoundaries.imgDiv
+        img(alt='', src='LotBoundaries.png')
+      #imageDiv_Addresses.imgDiv
+        img(alt='', src='Addresses.png')
+      #imageDiv_Streets.imgDiv
+        img(alt='', src='Streets.png')
+      #imageDiv_ElevationContours.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='ElevationContours.png')
+      #imageDiv_LotNumbers.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='LotNumbers.png')
+      #imageDiv_TanksTowers.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='TanksTowers.png')
+      #imageDiv_TrailSystem.imgDiv(style='filter: progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0;')
+        img(alt='', src='TrailSystem.png')
+      #imageDiv_TitleBlock.imgDiv
+        img(alt='', src='TitleBlock.png')
+    #layerControlDiv.opacityCtrlVisible(style='position: absolute; overflow: hidden;')
+      table#layerControlTable.opacityCtrlVisible(cellspacing='0', cellpadding='0')
+        tr
+          td#layerControlCell(rowspan='3')
+            a(href='javascript:hideLayerControl()')
+              img#layerControlImage(border='0', src='Collapse.gif', title='Hide layer control', alt='')
+          td(colspan='5', style='border: 1px; border-color: gray; border-style: solid; color: white; text-align: center; font-family: Arial,sans-serif; font-style: bold; font-size: 14pt;')
+            | Layer Opacity Control (collapsible)
+        tr
+          td#td_AerialPhoto
+            table#layerControl_AerialPhoto.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'AerialPhoto\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_AerialPhoto(onclick='javascript:adjustOpacity( event, \'AerialPhoto\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_AerialPhoto(style='height: 100%; background-color: black;')
+                      td#empty_AerialPhoto(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'AerialPhoto\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Aerial Photo
+          td#td_Addresses
+            table#layerControl_Addresses.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'Addresses\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_Addresses(onclick='javascript:adjustOpacity( event, \'Addresses\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_Addresses(style='height: 100%; background-color: black;')
+                      td#empty_Addresses(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'Addresses\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Addresses
+          td#td_Lakes
+            table#layerControl_Lakes.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'Lakes\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_Lakes(onclick='javascript:adjustOpacity( event, \'Lakes\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_Lakes(style='height: 100%; background-color: black;')
+                      td#empty_Lakes(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'Lakes\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Lakes
+          td#td_LotBoundaries
+            table#layerControl_LotBoundaries.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'LotBoundaries\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_LotBoundaries(onclick='javascript:adjustOpacity( event, \'LotBoundaries\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_LotBoundaries(style='height: 100%; background-color: black;')
+                      td#empty_LotBoundaries(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'LotBoundaries\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Lot Boundaries
+          td#td_RecCommonAreas
+            table#layerControl_RecCommonAreas.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'RecCommonAreas\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_RecCommonAreas(onclick='javascript:adjustOpacity( event, \'RecCommonAreas\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_RecCommonAreas(style='height: 100%; background-color: black;')
+                      td#empty_RecCommonAreas(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'RecCommonAreas\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Rec/Common Areas
+        tr
+          td#td_LotNumbers
+            table#layerControl_LotNumbers.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'LotNumbers\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_LotNumbers(onclick='javascript:adjustOpacity( event, \'LotNumbers\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_LotNumbers(style='height: 100%; background-color: black;')
+                      td#empty_LotNumbers(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'LotNumbers\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Lot Numbers
+          td#td_Streets
+            table#layerControl_Streets.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'Streets\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_Streets(onclick='javascript:adjustOpacity( event, \'Streets\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_Streets(style='height: 100%; background-color: black;')
+                      td#empty_Streets(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'Streets\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Streets
+          td#td_TrailSystem
+            table#layerControl_TrailSystem.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'TrailSystem\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_TrailSystem(onclick='javascript:adjustOpacity( event, \'TrailSystem\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_TrailSystem(style='height: 100%; background-color: black;')
+                      td#empty_TrailSystem(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'TrailSystem\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Trail System
+          td#td_TanksTowers
+            table#layerControl_TanksTowers.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'TanksTowers\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_TanksTowers(onclick='javascript:adjustOpacity( event, \'TanksTowers\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_TanksTowers(style='height: 100%; background-color: black;')
+                      td#empty_TanksTowers(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'TanksTowers\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Tanks and Towers
+          td#td_ElevationContours
+            table#layerControl_ElevationContours.opacityCtrlVisible(cellspacing='0', cellpadding='4')
+              tr
+                td.minMax(onclick='javascript:adjustOpacity( event, \'ElevationContours\' )')
+                  img(border='0', src='Minus.gif', title='Turn off layer', alt='')
+                td#progress_ElevationContours(onclick='javascript:adjustOpacity( event, \'ElevationContours\' )')
+                  table.progress(cellspacing='0', cellpadding='0')
+                    tr
+                      td#fill_ElevationContours(style='height: 100%; background-color: black;')
+                      td#empty_ElevationContours(style='height: 100%; background-color: black;')
+                td.minMax(onclick='javascript:adjustOpacity( event, \'ElevationContours\' )')
+                  img(border='0', src='Plus.gif', title='Turn on layer', alt='')
+              tr
+                td.labelTd(colspan='3')
+                  | Elevation Contours
+    script(type='text/javascript')
+      var ns = (navigator.appName.indexOf("Netscape") != -1);
+      var d = document;
+      var px = document.layers ? "" : "px";
+      function JSFX_FloatDiv( id, sx, sy)
+      {
+      var el = d.getElementById ? d.getElementById(id) : d.all ? d.all[id] : d.layers[id];
+      window[id + "_obj"] = el;
+      if( d.layers )
+      el.style = el;
+      el.cx = el.sx = sx;
+      el.cy = el.sy = sy;
+      el.sP = function(x,y)
+      {
+      this.style.left = x + px;
+      this.style.top = y + px;
+      };
+      el.flt=function()
+      {
+      var pX, pY;
+      pX = ns ? pageXOffset : (document.documentElement && document.documentElement.scrollLeft) ?
+      document.documentElement.scrollLeft : document.body.scrollLeft;
+      pY = ns ? pageYOffset : (document.documentElement && document.documentElement.scrollTop) ?
+      document.documentElement.scrollTop : document.body.scrollTop;
+      if( this.sy < 0 )
+      pY += ns ? innerHeight : (document.documentElement && document.documentElement.clientHeight) ?
+      document.documentElement.clientHeight : document.body.clientHeight;
+      this.cx += (pX + this.sx - this.cx)/2;
+      this.cy += (pY + this.sy - this.cy)/2;
+      this.sP(this.cx, this.cy);
+      setTimeout(this.id + "_obj.flt()", 40);
+      }
+      return el;
+      }
+      JSFX_FloatDiv( "layerControlDiv", 3, 3).flt();

@@ -13,7 +13,15 @@ var express = require('express') ,
   clubhouse = require('./clubhouse'),
   socialevents = require('./socialevents'),
   acc = require('./acc'),
-  board = require('./board');
+  board = require('./board'),
+  newsletter = require('./newsletter'),
+  photoalbum = require('./photoalbum'),
+  map = require('./map'),
+  lots = require('./map/lots'),
+  faq = require('./faq'),
+  legalstuff = require('./legalstuff'),
+  reference = require('./reference'),
+  links = require('./links');
 
 var app = module.exports = express.createServer();
 
@@ -52,6 +60,14 @@ app.get('/clubhouse', clubhouse.index);
 app.get('/socialevents', socialevents.index);
 app.get('/acc', acc.index);
 app.get('/board', board.index);
+app.get('/newsletter', newsletter.index);
+app.get('/photoalbum', photoalbum.index);
+app.get('/map', map.index);
+app.get('/map/lots', lots.index);
+app.get('/faq', faq.index);
+app.get('/legalstuff', legalstuff.index);
+app.get('/reference', reference.index);
+app.get('/links', links.index);
 
-app.listen(80);
+app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

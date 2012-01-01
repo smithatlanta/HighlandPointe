@@ -18,7 +18,7 @@ p{font:14px Georgia serif}
 #leftloginbody{position:relative;top:-25px;left:20px}
 #leftresourcesheader{position:relative;height:165px;background:#e8e8e8;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 #h3leftresources{position:relative;color:#fff;height:20px;top:-15px;background:#2a6da9;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
-#leftresourcesbody{position:relative;overflow:scroll;top:-25px;left:40px;height:160px;width:140px}
+#leftresourcesbody{position:relative;overflow:scroll;top:-25px;left:40px;height:140px;width:140px}
 #leftupcomingheader{position:relative;height:245px;background:#e8e8e8;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 #h3leftupcoming{position:relative;color:#fff;height:20px;top:-15px;background:#2a6da9;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 #leftupcomingbody{position:relative;left:2px;top:-25px;height:220px}
