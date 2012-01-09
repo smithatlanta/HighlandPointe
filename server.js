@@ -22,6 +22,7 @@ var express = require('express') ,
   legalstuff = require('./legalstuff'),
   reference = require('./reference'),
   links = require('./links');
+  users = require('./users');
 
 var app = module.exports = express.createServer();
 
@@ -68,6 +69,11 @@ app.get('/faq', faq.index);
 app.get('/legalstuff', legalstuff.index);
 app.get('/reference', reference.index);
 app.get('/links', links.index);
+app.get('/users', users.index);
+
+app.post('/users', function(req, res) {
+  res.redirect('/users');
+});
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

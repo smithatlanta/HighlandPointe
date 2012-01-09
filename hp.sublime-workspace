@@ -8,10 +8,10 @@
 	"buffers":
 	[
 		{
-			"file": "app.js",
+			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 1611,
+				"buffer_size": 2170,
 				"line_ending": "Unix"
 			}
 		}
@@ -48,6 +48,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/masmith/Documents/My Dropbox/Development/Projects/HighlandPointe/views/acc/index.jade",
+		"/C/Users/masmith/Documents/My Dropbox/Development/Projects/HighlandPointe/app.js",
 		"/Users/masmith/Dropbox/Development/Projects/tuts/server.js",
 		"/Users/masmith/Documents/schedule.json",
 		"/Users/masmith/Desktop/mongodbnode.sh",
@@ -93,22 +95,23 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app.js",
+					"file": "server.js",
 					"settings":
 					{
-						"buffer_size": 1611,
+						"buffer_size": 2170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1154,
-								1154
+								2170,
+								2170
 							]
 						],
 						"settings":
@@ -118,7 +121,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
