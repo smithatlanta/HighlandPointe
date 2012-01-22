@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Highland Pointe Map</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<style type="text/css">
+  DIV.imgDiv {
+    position:absolute;
+    top:0px;
+    left:0px;
+  }
+
+  TABLE.opacityCtrlVisible {
+    background-color:black;
+    border:1px;
+    border-color:gray;
+    border-style:solid;
+  }
+
+  TABLE.opacityCtrlHidden {
+    background-color:black;
+    border:1px;
+    border-color:red;
+    border-style:solid;
+  }
+
+  TABLE.progress {
+    width:100px;
+    height:10px;
+    border:1px;
+    border-color:gray;
+    border-style:solid;
+  }
+
+  TD.labelTd {
+    text-align:center;
+    white-space:nowrap;
+    color:white;
+    font-size:10pt;
+    font-family: "Arial", "sans-serif";
+    vertical-align:top;
+    height:10px;
+    overflow:hidden;
+  }
+
+  TD.minMax {
+    text-align:center;
+    white-space:nowrap;
+    color:white;
+    font-size:8pt;
+    font-family: "Arial", "sans-serif";
+    vertical-align:middle;
+  }
+
+</style>
+
+
+
+<script type="text/javascript">
+
+function adjustOpacity( evt, idSuffix )
+{
+  elTd            = document.getElementById("td" + "_" + idSuffix);
+  elProgress      = document.getElementById("progress" + "_" + idSuffix);
+  elFill          = document.getElementById("fill" + "_" + idSuffix);
+  elEmpty         = document.getElementById("empty" + "_" + idSuffix);
+  elImageDiv_Main = document.getElementById("imageDiv_Main")
+
+  fillPercent = (evt.clientX - elTd.offsetLeft - elProgress.offsetLeft - elImageDiv_Main.offsetLeft - elFill.offsetLeft );
+//  alert('percent = ' + fillPercent );
+
+  fillPercent = (fillPercent > 100 ) ? 100 : fillPercent;
+  fillPercent = (fillPercent < 0   ) ? 0 : fillPercent;
+
+  adjustControl( elFill, elEmpty, fillPercent );
+  setOpacity( 'imageDiv_' + idSuffix, fillPercent );
+}
+
+function adjustControl( elFill, elEmpty, fillPercent ) 
+{
+  fillPercentStr = fillPercent + "%";
+  elFill.style.width  = fillPercentStr;
+  elFill.style.backgroundColor="white";
+  elEmpty.style.width = 100-fillPercent + "%";
+}
+
+function setOpacity( divName, opacity ) 
+{
+  divToSet = document.getElementById(divName)
+  opacity = (opacity == 100)?99.999:opacity;
+ 
+  // IE/Win
+  divToSet.style.filter = "alpha(opacity:"+opacity+")";
+ 
+  // Safari<1.2, Konqueror
+  divToSet.style.KHTMLOpacity = opacity/100;
+ 
+  // Older Mozilla and Firefox
+  divToSet.style.MozOpacity = opacity/100;
+
+  // Safari 1.2, newer Firefox and Mozilla, CSS3
+  divToSet.style.opacity = opacity/100;
+}
+
+function shiftControl()
+{
+  elLayerControlTable = document.getElementById("layerControlTable");
+  elLayerControlCell  = document.getElementById("layerControlCell");
+  elLayerControlDiv   = document.getElementById("layerControlDiv");
+  elLayerControlImage = document.getElementById("layerControlImage");
+
+  if( elLayerControlDiv.offsetWidth > 30 )
+  {
+    controlWidth = elLayerControlCell.offsetWidth;
+
+    elLayerControlDiv.style.width         = controlWidth + 2 + "px";
+    elLayerControlImage.title             = "Show layer control";
+    elLayerControlImage.src               = "Expand.gif";
+    
+    elLayerControlTable.style.border      = "none";
+    elLayerControlCell.style.borderColor  = "red";
+    elLayerControlCell.style.borderStyle  = "solid";
+    elLayerControlCell.style.borderWidth  = "1px";
+
+    elLayerControlImage.blur();
+  }
+  else
+  {
+    elLayerControlDiv.style.width         = "100%";
+    elLayerControlImage.title             = "Hide layer control";
+    elLayerControlImage.src               = "Collapse.gif";
+
+    elLayerControlCell.style.border       = "none";
+    elLayerControlTable.style.borderColor = "gray";
+    elLayerControlTable.style.borderStyle = "solid";
+    elLayerControlTable.style.borderWidth = "1px";
+    
+    elLayerControlImage.blur();
+  }
+}
+
+function hideLayerControl()
+{
+  elLayerControlTable = document.getElementById("layerControlTable");
+  elLayerControlCell  = document.getElementById("layerControlCell");
+  elLayerControlDiv   = document.getElementById("layerControlDiv");
+  elLayerControlImage = document.getElementById("layerControlImage");
+
+  controlWidth = elLayerControlCell.offsetWidth;
+  
+  divWidth = elLayerControlDiv.style.width;
+  idxUnits = divWidth.indexOf("%");
+
+  if( idxUnits != -1 )
+    divWidth = divWidth.substring( 0, idxUnits );
+  else
+  {
+    idxUnits = divWidth.indexOf("px");
+
+    if( idxUnits != -1 )
+      divWidth = divWidth.substring( 0, idxUnits );
+    else
+      divWidth = 100;
+  }
+
+  if( elLayerControlImage.src.indexOf("Collapse.gif") != -1 )
+  {
+    if( divWidth > 10 )
+    {
+      divWidth /= 2;
+      divWidth += "%";
+      setTimeout("javascript:hideLayerControl()", 40);
+    }
+    else
+    {
+      divWidth = controlWidth + 2 + "px";
+      elLayerControlImage.title             = "Show layer control";
+      elLayerControlImage.src               = "Expand.gif";
+    
+      elLayerControlTable.style.border      = "none";
+      elLayerControlCell.style.borderColor  = "red";
+      elLayerControlCell.style.borderStyle  = "solid";
+      elLayerControlCell.style.borderWidth  = "1px";
+
+      elLayerControlImage.blur();
+    }
+  }
+  else
+  {
+    elLayerControlCell.style.border       = "none";
+    elLayerControlTable.style.borderColor = "gray";
+    elLayerControlTable.style.borderStyle = "solid";
+    elLayerControlTable.style.borderWidth = "1px";
+    
+    if( divWidth < 50 )
+    {
+      divWidth *= 1.5;
+      divWidth += "%";
+      setTimeout("javascript:hideLayerControl()", 40);
+    }
+    else
+    {
+      divWidth = "100%";
+      elLayerControlImage.title             = "Hide layer control";
+      elLayerControlImage.src               = "Collapse.gif";
+
+      elLayerControlImage.blur();
+    }
+  }
+  elLayerControlDiv.style.width         = divWidth;
+}
+
+function initializeLayerControl()
+{
+  initializeOpacityControl('AerialPhoto');
+  initializeOpacityControl('Lakes');
+  initializeOpacityControl('RecCommonAreas');
+  initializeOpacityControl('LotBoundaries');
+  initializeOpacityControl('Addresses');
+  initializeOpacityControl('Streets');
+  initializeOpacityControl('ElevationContours');
+  initializeOpacityControl('LotNumbers');
+  initializeOpacityControl('TanksTowers');
+  initializeOpacityControl('TrailSystem');
+}
+
+
+function initializeOpacityControl( idSuffix )
+{
+  elImgDiv  = document.getElementById('imageDiv_' + idSuffix);
+  elFill    = document.getElementById("fill" + "_" + idSuffix);
+  elEmpty   = document.getElementById("empty" + "_" + idSuffix);
+
+  if( elImgDiv.style.opacity )
+    adjustControl( elFill, elEmpty, 0 );
+  else
+  {
+    if( elImgDiv.style.filter )
+      adjustControl( elFill, elEmpty, 0 );
+    else
+      adjustControl( elFill, elEmpty, 100 );
+  }
+}
+
+</script>
+</head>
+
+<body bgcolor="black" onload="javascript:initializeLayerControl()">  
+
+  <div id="imageDiv_Main"
+    style="position:absolute;
+           text-align:left;
+           background-color:black;
+           color:white;
+           top:0px;
+           left:5px;">
+
+    <div class="imgDiv" id="imageDiv_AerialPhoto" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="AerialPhoto.jpg"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_Lakes" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="Lakes.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_RecCommonAreas" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="RecCommonAreas.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_LotBoundaries">
+      <img alt="" src="LotBoundaries.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_Addresses">
+      <img alt="" src="Addresses.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_Streets">
+      <img alt="" src="Streets.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_ElevationContours" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="ElevationContours.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_LotNumbers" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="LotNumbers.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_TanksTowers" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="TanksTowers.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_TrailSystem" style="filter:progid:DXImageTransform.Microsoft.alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0;">
+      <img alt="" src="TrailSystem.png"/>
+    </div>
+
+    <div class="imgDiv" id="imageDiv_TitleBlock">
+      <img alt="" src="TitleBlock.png"/>
+    </div>
+  </div>
+
+  <div id="layerControlDiv" class="opacityCtrlVisible" style="position:absolute; overflow:hidden;">
+    <table id="layerControlTable" class="opacityCtrlVisible" cellspacing="0" cellpadding="0">
+      <tr>
+        <td id="layerControlCell" rowspan="3" >
+          <a href="javascript:hideLayerControl()"><img id="layerControlImage" border="0" src="Collapse.gif" title="Hide layer control" alt=""/></a>
+        </td>
+
+        <td colspan="5" style="border:1px; border-color:gray; border-style:solid; color:white; text-align:center; font-family:Arial,sans-serif; font-style:bold; font-size:14pt;">
+          Layer Opacity Control (collapsible)
+        </td>
+      </tr>
+
+      <tr>
+        <td id="td_AerialPhoto">
+          <table id="layerControl_AerialPhoto" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'AerialPhoto' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_AerialPhoto" onclick="javascript:adjustOpacity( event, 'AerialPhoto' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_AerialPhoto"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_AerialPhoto" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'AerialPhoto' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Aerial Photo
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_Addresses">
+          <table id="layerControl_Addresses" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'Addresses' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_Addresses" onclick="javascript:adjustOpacity( event, 'Addresses' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_Addresses"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_Addresses" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'Addresses' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Addresses
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_Lakes">
+          <table id="layerControl_Lakes" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'Lakes' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_Lakes" onclick="javascript:adjustOpacity( event, 'Lakes' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_Lakes"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_Lakes" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'Lakes' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Lakes
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_LotBoundaries">
+          <table id="layerControl_LotBoundaries" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'LotBoundaries' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_LotBoundaries" onclick="javascript:adjustOpacity( event, 'LotBoundaries' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_LotBoundaries"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_LotBoundaries" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'LotBoundaries' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Lot Boundaries
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_RecCommonAreas">
+          <table id="layerControl_RecCommonAreas" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'RecCommonAreas' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_RecCommonAreas" onclick="javascript:adjustOpacity( event, 'RecCommonAreas' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_RecCommonAreas"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_RecCommonAreas" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'RecCommonAreas' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Rec/Common Areas
+              </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+      <tr>
+
+        <td id="td_LotNumbers">
+          <table id="layerControl_LotNumbers" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'LotNumbers' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_LotNumbers" onclick="javascript:adjustOpacity( event, 'LotNumbers' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_LotNumbers"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_LotNumbers" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'LotNumbers' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Lot Numbers
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_Streets">
+          <table id="layerControl_Streets" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'Streets' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_Streets" onclick="javascript:adjustOpacity( event, 'Streets' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_Streets"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_Streets" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'Streets' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Streets
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_TrailSystem">
+          <table id="layerControl_TrailSystem" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'TrailSystem' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_TrailSystem" onclick="javascript:adjustOpacity( event, 'TrailSystem' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_TrailSystem"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_TrailSystem" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'TrailSystem' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Trail System
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_TanksTowers">
+          <table id="layerControl_TanksTowers" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'TanksTowers' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_TanksTowers" onclick="javascript:adjustOpacity( event, 'TanksTowers' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_TanksTowers"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_TanksTowers" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'TanksTowers' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Tanks and Towers
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td id="td_ElevationContours">
+          <table id="layerControl_ElevationContours" class="opacityCtrlVisible" cellspacing="0" cellpadding="4">
+            <tr>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'ElevationContours' )"><img border="0" src="Minus.gif" title="Turn off layer" alt=""/></td>
+              <td id="progress_ElevationContours" onclick="javascript:adjustOpacity( event, 'ElevationContours' )">
+                <table cellspacing="0" cellpadding="0" class="progress">
+                  <tr>
+                    <td id="fill_ElevationContours"  style="height:100%; background-color:black;  "/>
+                    <td id="empty_ElevationContours" style="height:100%; background-color:black; "/>
+                  </tr>
+                </table>
+              </td>
+              <td class="minMax" onclick="javascript:adjustOpacity( event, 'ElevationContours' )"><img border="0" src="Plus.gif" title="Turn on layer" alt=""/></td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="labelTd">
+              Elevation Contours
+              </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+    </table>
+
+  </div>
+
+<script type="text/javascript">
+var ns = (navigator.appName.indexOf("Netscape") != -1);
+var d = document;
+var px = document.layers ? "" : "px";
+
+function JSFX_FloatDiv( id, sx, sy)
+{
+  var el = d.getElementById ? d.getElementById(id) : d.all ? d.all[id] : d.layers[id];
+  window[id + "_obj"] = el;
+
+  if( d.layers )
+    el.style = el;
+
+  el.cx = el.sx = sx;
+  el.cy = el.sy = sy;
+
+  el.sP = function(x,y)
+  {
+    this.style.left = x + px;
+    this.style.top = y + px;
+  };
+  
+  el.flt=function()
+  {
+    var pX, pY;
+
+    pX = ns ? pageXOffset : (document.documentElement && document.documentElement.scrollLeft) ?
+                             document.documentElement.scrollLeft : document.body.scrollLeft;
+
+
+    pY = ns ? pageYOffset : (document.documentElement && document.documentElement.scrollTop) ?
+                             document.documentElement.scrollTop : document.body.scrollTop;
+
+    if( this.sy < 0 ) 
+      pY += ns ? innerHeight : (document.documentElement && document.documentElement.clientHeight) ? 
+                                document.documentElement.clientHeight : document.body.clientHeight;
+
+    this.cx += (pX + this.sx - this.cx)/2;
+    this.cy += (pY + this.sy - this.cy)/2;
+    
+    this.sP(this.cx, this.cy);
+    setTimeout(this.id + "_obj.flt()", 40);
+  }
+  return el;
+}
+
+JSFX_FloatDiv( "layerControlDiv", 3, 3).flt();
+
+</script>
+</body>
+</html>

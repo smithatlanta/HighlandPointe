@@ -4,20 +4,342 @@ html
     title Newsletter
     script
       $('#h3centergoings').text("Newsletter");
+      $(function() {
+        $( "#tabs" ).tabs();
+      });
   body
-    table(border='0', cellspacing='0', cellpadding='0', width='800', nof='LY')
-      tr(valign='TOP', align='LEFT')
-        td(height='152', colspan='2', align='CENTER', valign='MIDDLE', width='545')
-          img#Picture7(height='152', width='545', src='../images/PipelineGraphic.gif', border='0', alt='')
-      tr(valign='TOP', align='LEFT')
-        td(colspan='2', height='3')
-      tr(valign='TOP', align='LEFT')
-        td.TextObject(colspan='2', width='800')
-          p
-            | The Pipeline is Highland Pointe's monthly newsletter and is distributed to all residents,
-            | regardless of their membership status. You'll find great information about current happenings in
-            | our community, welcomes to new neighbors, board meeting minutes and much more.
-          p
-            | And don't forget the classified section in which you can find vendors offering a variety of goods
-            | and services. It's also a great way to let everyone in Highland Pointe know about your business.
-            | If you pay in advance for a running ad, you'll receive a discount.
+    div#tabs
+      ul
+        li: a(href='#tabs-1') Newsletter
+        li: a(href='#tabs-2') Classified Ad Info
+        li: a(href='#tabs-3') Issues
+      div#tabs-1
+        table(border='0', cellspacing='0', cellpadding='0', width='100%', nof='LY')
+          tr(valign='TOP', align='CENTER')
+            td
+              img#Picture7(src='../images/PipelineGraphic.gif', border='0', alt='')
+          tr(valign='TOP', align='LEFT')
+            td
+              p
+                | The Pipeline is Highland Pointe's monthly newsletter and is distributed to all residents,
+                | regardless of their membership status. You'll find great information about current happenings in
+                | our community, welcomes to new neighbors, board meeting minutes and much more.
+              p
+                | And don't forget the classified section in which you can find vendors offering a variety of goods
+                | and services. It's also a great way to let everyone in Highland Pointe know about your business.
+                | If you pay in advance for a running ad, you'll receive a discount.
+      div#tabs-2
+        table(width='630', height='308')
+          tr(align='LEFT', valign='TOP')
+            td
+              .Section1
+                p.MsoNormal
+                  o:p
+                table(border='0', cellspacing='0', cellpadding='0', style='border-collapse: collapse; mso-padding-alt: 0in 5.4pt 0in 5.4pt;')
+                  tr(style='height: 67.5pt;')
+                    td(width='590', colspan='3', valign='top', style='width: 6.15in; padding: 0in 5.4pt 0in 5.4pt; height: 67.5pt;')
+                      p.MsoNormal
+                        | The Pipeline is delivered monthly to every residence in
+                        | Highland Pointe. That's almost 500 homes. Advertising in the Pipeline is a
+                        | great way to get the message about your business to the Highland Pointe
+                        | community.
+                        i
+                          u
+                            span(style='font-size: 18.0pt; mso-bidi-font-size: 12.0pt;')
+                              o:p
+                  tr(style='height: .25in;')
+                    td(width='590', colspan='3', valign='top', style='width: 6.15in; padding: 0in 5.4pt 0in 5.4pt; height: .25in;')
+                      h1
+                        i
+                          u
+                            span(style='font-size: 18.0pt; mso-bidi-font-size: 12.0pt; font-family: "Times New Roman";')
+                              | Highland Pointe Pipeline Classified Ad Rates
+                              o:p
+                  tr(style='height: 270.9pt;')
+                    td(width='295', valign='top', style='width: 221.4pt; padding: 0in 5.4pt 0in 5.4pt; height: 270.9pt;')
+                      h2
+                        span(style='font-family: "Times New Roman";')
+                          o:p
+                      table(border='0', cellspacing='0', cellpadding='0', style='border-collapse: collapse; mso-padding-alt: 0in 5.4pt 0in 5.4pt;')
+                        tr
+                          td(width='280', colspan='3', valign='top', style='width: 210.1pt; border: solid windowtext .5pt; border-bottom: none; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                u
+                                  span(style='font-size: 14.0pt; mso-bidi-font-size: 10.0pt; font-family: "Times New Roman";')
+                                    o:p
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                u
+                                  span(style='font-size: 14.0pt; mso-bidi-font-size: 10.0pt; font-family: "Times New Roman";')
+                                    | Business
+                                    | Card Ad
+                              u
+                                span(style='font-size: 14.0pt; mso-bidi-font-size: 10.0pt; font-family: "Times New Roman";')
+                                  o:p
+                        tr
+                          td(width='72', colspan='2', valign='top', style='width: 53.75pt; border: none; border-left: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal
+                              span(style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt;')
+                                | $10.00
+                                o:p
+                          td(width='208', valign='top', style='width: 156.35pt; border: none; border-right: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              span(style='font-family: "Times New Roman";')
+                                | Monthly business card sized ad. These ads are
+                                | approximately 44 characters per line including spaces. This Ad measures 3
+                                | 1/2 in. wide x 2 in. long.
+                                o:p
+                        tr
+                          td(width='72', colspan='2', valign='top', style='width: 53.75pt; border: none; border-left: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal
+                              span(style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt;')
+                                | $7.50
+                                o:p
+                          td(width='208', valign='top', style='width: 156.35pt; border: none; border-right: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              span(style='font-family: "Times New Roman";')
+                                | Per month when prepaid for 6 or 12 months.
+                                o:p
+                        tr
+                          td(width='280', colspan='3', valign='top', style='width: 210.1pt; border: solid windowtext .5pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                span(style='font-family: "Times New Roman";')
+                                  o:p
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                span(style='font-family: "Times New Roman";')
+                                  | Resident's personal 'for sale' ads
+                                  | are always $7.50 for business card size.
+                                  o:p
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                span(style='font-family: "Times New Roman";')
+                                  o:p
+                        tr
+                          td(width='280', colspan='3', valign='top', style='width: 210.1pt; border-top: none; border-left: solid windowtext .5pt; border-bottom: none; border-right: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                u
+                                  span(style='font-size: 14.0pt; mso-bidi-font-size: 10.0pt; font-family: "Times New Roman";')
+                                    o:p
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                u
+                                  span(style='font-size: 14.0pt; mso-bidi-font-size: 10.0pt; font-family: "Times New Roman";')
+                                    | Quarter
+                                    | Page Ad
+                              u
+                                span(style='font-size: 14.0pt; mso-bidi-font-size: 10.0pt; font-family: "Times New Roman";')
+                                  o:p
+                        tr
+                          td(width='58', valign='top', style='width: 43.8pt; border: none; border-left: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal
+                              span(style='font-size: 10.0pt;') $35.00
+                          td(width='222', colspan='2', valign='top', style='width: 166.3pt; border: none; border-right: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              span(style='font-family: "Times New Roman";')
+                                | Monthly Quarter-page ad. This ad measures approximately
+                                | 3 1/2 in. wide x 4 1/4 in. long.
+                                o:p
+                        tr
+                          td(width='280', colspan='3', valign='top', style='width: 210.1pt; border: solid windowtext .5pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 9.0pt;')
+                                  o:p
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 9.0pt;')
+                                  | 10% Discount when prepaid for 12 months
+                                  o:p
+                            p.MsoBodyTextIndent(style='margin-left: 0in;')
+                              b
+                                span(style='font-size: 9.0pt; font-family: "Times New Roman";')
+                                  span(style='mso-spacerun: yes;')  
+                                  | 5% Discount when prepaid for 6 months
+                              span(style='font-family: "Times New Roman";')
+                                o:p
+                        tr(height='0')
+                          td(width='58', style='border: none;')
+                          td(width='13', style='border: none;')
+                          td(width='208', style='border: none;')
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        b
+                          o:p
+                    td(width='295', colspan='2', valign='top', style='width: 221.4pt; padding: 0in 5.4pt 0in 5.4pt; height: 270.9pt;')
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        b
+                          o:p
+                      table(border='0', cellspacing='0', cellpadding='0', style='border-collapse: collapse; mso-padding-alt: 0in 5.4pt 0in 5.4pt;')
+                        tr
+                          td(width='280', colspan='2', valign='top', style='width: 209.85pt; border: solid windowtext .5pt; border-bottom: none; padding: 0in 5.4pt 0in 5.4pt;')
+                            h3
+                              o:p
+                            h3 Half Page Ad
+                        tr
+                          td(width='64', valign='top', style='width: 48.35pt; border: none; border-left: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              span(style='font-size: 10.0pt;') $60.00
+                              b
+                                span(style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt;')
+                                  o:p
+                          td(width='215', valign='top', style='width: 161.5pt; border: none; border-right: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              span(style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt;')
+                                | Monthly 1/2 page ad.
+                                | This ad measures approximately 6 1/2 in. wide x 4/1/2 in. long.
+                                b
+                                  o:p
+                        tr
+                          td(width='280', colspan='2', valign='top', style='width: 209.85pt; border: solid windowtext .5pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 10.0pt;')
+                                  o:p
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 10.0pt;')
+                                  | 10% Discount when prepaid for 12 months
+                                  o:p
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 10.0pt;')
+                                  span(style='mso-spacerun: yes;')
+                                  | 5%
+                                  | Discount when prepaid for 6 months.
+                                  o:p
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                o:p
+                        tr
+                          td(width='280', colspan='2', valign='top', style='width: 209.85pt; border-top: none; border-left: solid windowtext .5pt; border-bottom: none; border-right: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            h3
+                              o:p
+                            h3 Full Page Ad
+                        tr
+                          td(width='64', valign='top', style='width: 48.35pt; border: none; border-left: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              span(style='font-size: 10.0pt;') $110.00
+                              b
+                                o:p
+                          td(width='215', valign='top', style='width: 161.5pt; border: none; border-right: solid windowtext .5pt; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              span(style='font-size: 10.0pt;')
+                                | Monthly Full page ad. This ad measures approximately
+                                | 6 1/2 in. wide x 9 in. long.
+                              b
+                                o:p
+                        tr
+                          td(width='280', colspan='2', valign='top', style='width: 209.85pt; border: solid windowtext .5pt; border-top: none; padding: 0in 5.4pt 0in 5.4pt;')
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 10.0pt;')
+                                  o:p
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 10.0pt;')
+                                  | 10% Discount when prepaid for 12 months
+                                  o:p
+                            p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                              b
+                                span(style='font-size: 10.0pt;')
+                                  span(style='mso-spacerun: yes;')
+                                  | 5%
+                                  | Discount when prepaid for 6 months
+                                o:p
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        b
+                          o:p
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        b
+                          o:p
+                  tr(style='height: 49.5pt;')
+                    td(width='590', colspan='3', valign='top', style='width: 6.15in; padding: 0in 5.4pt 0in 5.4pt; height: 49.5pt;')
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        span(style='font-size: 10.0pt;')
+                          o:p
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        b
+                          u
+                            span(style='mso-bidi-font-size: 10.0pt;')
+                              | Please note:
+                              o:p
+                      p.MsoNormal(style='margin-left: .25in; text-indent: -9.0pt; mso-list: l0 level1 lfo1; tab-stops: list .25in; mso-layout-grid-align: none; text-autospace: none;')
+                        span(style='font-size: 10.0pt; font-family: Symbol;')
+                          |
+                          span(style='font: 7.0pt "Times New Roman";')
+                        span(style='font-size: 10.0pt;')
+                          | Discounts are based on
+                          | running the SAME ad for the full discount period!! Any change (other than
+                          | error correction) will require payment of the difference to the
+                          | non-discounted rate.
+                          o:p
+                      p.MsoNormal(style='margin-left: .25in; text-indent: -9.0pt; mso-list: l0 level1 lfo1; tab-stops: list .25in; mso-layout-grid-align: none; text-autospace: none;')
+                        span(style='font-size: 10.0pt; font-family: Symbol;')
+                          |
+                          span(style='font: 7.0pt "Times New Roman";')
+                        span(style='font-size: 10.0pt;')
+                          | An artwork fee of $20
+                          | will be charged unless the new ad is provided camera-ready.
+                          o:p
+                      p.MsoNormal(style='margin-left: .25in; text-indent: -9.0pt; mso-list: l0 level1 lfo1; tab-stops: list .25in; mso-layout-grid-align: none; text-autospace: none;')
+                        span(style='font-size: 10.0pt; font-family: Symbol;')
+                          |
+                          span(style='font: 7.0pt "Times New Roman";')
+                        span(style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt;')
+                          | Ads must be placed and paid for by the 15th of the month for
+                          | inclusion in the next month's newsletter.
+                        span(style='font-size: 10.0pt;')
+                          o:p
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        b
+                          o:p
+                  tr(style='height: 43.65pt;')
+                    td(width='403', colspan='2', valign='top', style='width: 4.2in; padding: 0in 5.4pt 0in 5.4pt; height: 43.65pt;')
+                      h2
+                        span(style='font-family: "Times New Roman"; font-weight: normal;')
+                          | For more
+                          | information on placing an ad, call the Highland Pointe Office at
+                          | 770-973-0925. Please send payments to the office address:
+                          o:p
+                    td(width='187', valign='top', style='width: 1.95in; padding: 0in 5.4pt 0in 5.4pt; height: 43.65pt;')
+                      h4
+                        span(style='font-size: 12.0pt; mso-bidi-font-size: 11.0pt;')
+                          | Mailing Address
+                          o:p
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        span(style='mso-bidi-font-size: 10.0pt;')
+                          | HPRA OFFICE
+                          o:p
+                      p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                        span(style='mso-bidi-font-size: 10.0pt;') 3750 Club House Court
+                        span(style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt;')
+                          o:p
+                  tr(height='0')
+                    td(width='295', style='border: none;')
+                    td(width='108', style='border: none;')
+                    td(width='187', style='border: none;')
+                p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                  b
+                    span(style='font-family: TimesNewRomanPS-BoldMT;')
+                      o:p
+                p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                  b
+                    span(style='font-family: TimesNewRomanPS-BoldMT;')
+                      o:p
+                p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                  b
+                    span(style='font-family: TimesNewRomanPS-BoldMT;')
+                      o:p
+                p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                  b
+                    span(style='font-size: 9.0pt; font-family: TimesNewRomanPS-BoldMT;')
+                      o:p
+                p.MsoNormal(style='mso-layout-grid-align: none; text-autospace: none;')
+                  span(style='font-size: 10.0pt; font-family: TimesNewRomanPS-BoldMT;')
+                    o:p
+                p.MsoNormal
+                  o:p
+      div#tabs-3

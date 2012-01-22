@@ -4,24 +4,154 @@ html
     title Highland Pointe Board of Directors
     script
       $('#h3centergoings').text("Highland Pointe Board of Directors");
+      $(function() {
+        $( "#tabs" ).tabs();
+      });
   body
-    table(border='0', cellspacing='0', cellpadding='0', width='800', nof='LY')
-      tr(valign='TOP', align='LEFT')
-        td.TextObject(colspan='2', width='800')
-          p
-            | The Highland Pointe Recreation Association, Inc. Board of Directors is a group of volunteers who
-            | have committed to a two years term, devoting their free time for our community. Some board
-            | members even sign on for more than one term!
-          p
-            | Board member elections are held in November of each year. Approximately half the board positions
-            | are elected each time, so there are always experienced Board members remaining with each new
-            | class. Mandatory HOA member households in Highland Pointe are eligible to vote for Board
-            | Members, and ANY adult Mandatory HPHOA member is eligible to run for the board. It doesnt matter
-            | if youve been here twenty years or twenty minutes!
-          p
-            | The board usually meets monthly. Check the
-            a(href='../EventCalendar/') online calendar
-            | for meeting times and dates. Residents are welcome to attend and bring up community related issues for discussion.
-          ul
-            li
-              a(href='../Contacts/') Click here for board member and office contact information.
+    div#tabs
+      ul
+        li: a(href='#tabs-1') Board of Directors
+        li: a(href='#tabs-2') Job Descriptions
+        li: a(href='#tabs-3') Minutes       
+      div#tabs-1
+        table(border='0', cellspacing='0', cellpadding='0', width='100%', nof='LY')
+          tr
+            td
+              p
+                | The Highland Pointe Recreation Association, Inc. Board of Directors is a group of volunteers who
+                | have committed to a two years term, devoting their free time for our community. Some board
+                | members even sign on for more than one term!
+              p
+                | Board member elections are held in November of each year. Approximately half the board positions
+                | are elected each time, so there are always experienced Board members remaining with each new
+                | class. Mandatory HOA member households in Highland Pointe are eligible to vote for Board
+                | Members, and ANY adult Mandatory HPHOA member is eligible to run for the board. It doesnt matter
+                | if youve been here twenty years or twenty minutes!
+              p
+                | The board usually meets monthly. Check the
+                a(href='../EventCalendar/') online calendar
+                |  for meeting times and dates. Residents are welcome to attend and bring up community related issues for discussion.
+              ul
+                li
+                  a(href='../Contacts/') Click here for board member and office contact information.
+      div#tabs-2
+          table#Table1(border='0', cellspacing='0', cellpadding='0', width='100%')
+            tr
+              td
+                p(style='text-align: center;')
+                  b
+                    span(style='font-size: medium;') Board of Directors Job Descriptions
+            tr
+              td
+                p
+                  b President
+            tr
+              td
+                p
+                  | Call to order/close monthly meetings. Conduct and maintain control of board meetings
+                  | at all times. Call special meetings. Oversee HP board of directors operations and
+                  | procedures. Assist other board members when needed
+            tr
+              td
+                p
+                  b Treasurer
+            tr
+              td
+                p
+                  | Responsible for the association’s funds and securities and shall be responsible for
+                  | keeping full and accurate financial records and books of accounts showing all
+                  | receipts and disbursements, for preparing all required financial statements and tax
+                  | returns, may delegate tax returns to a state licensed accountant. Responsible for the
+                  | preparation of the budget and Profit & Lost and Balance Sheet reports to present
+                  | to the board, quarterly publish balance sheets in Pipeline.  Delegate and work
+                  | closely with HP’s office bookkeeper.
+            tr
+              td
+                p
+                  b Grounds Director
+            tr
+              td
+                p
+                  | Responsible for entrances landscape contract, (3 Highland Pointe entrances and 1 Grove
+                  | entrance) trails, dams, contract trash hauling, lawn chemical contract. Contract
+                  | with tree company to trim or remove trees.  Maintain, repair, and structures
+                  | such as fishing dock, wooden steps on trails, etc. Work with board on ACC issues
+                  | including non-resident issues.  Request the office to mail template covenant
+                  | violation letters to resident.   Delegate the decoration of all entrances
+                  | during specific holidays.
+            tr
+              td
+                p
+                  b Pool Director
+            tr
+              td
+                p
+                  | Work with pool management company on contract issues, life guards hours, set pool
+                  | calendar, coordinate calendar with swim team for practice hours and home swim
+                  | meets. All pool related maintenance and repairs (fence, walls, gates,
+                  | etc.).  Request office to issue guards an updated member list on an ongoing
+                  | basis. Inventory and purchase furniture and other related items (trash cans,
+                  | etc.).  Ensure the pool is closed properly by pool management company and
+                  | covered at the end of season, pumps shut down, furniture stored and covered for
+                  | winter, etc.  Update pool rules as needed.  Confirm through office that all
+                  | pool parties, private or during pool hours, have been approved.
+            tr
+              td
+                p
+                  b Tennis Director
+            tr
+              td
+                p
+                  | Responsible for all maintenance and repairs of courts.  Update rules as
+                  | needed.  Address any problems with tennis committees, captains and or
+                  | players.  Ensure that all tennis captains are checked for HPRA (recreation)
+                  | membership.
+            tr
+              td
+                p
+                  b Clubhouse Director
+            tr
+              td
+                p
+                  | Keep the clubhouse and related facilities (exercise equipment, deck, etc.)
+                  | in good working order by performing simple “handyman” repaires, working with vendors, acquiring supplies, coordinating redecoration and remodeling efforts when required. Manage clubhouse facility rentals by controlling access, and inspecting after events. Note that the actual clubhouse rental procedure is done through the Highland Pointe office.
+            tr
+              td
+                p
+                  b Social Chairman
+            tr
+              td
+                p
+                  | Plan and arrange for all social events including decorating, music, food vendors,
+                  | beverages and notifying the community of events (via the Pipeline, signage and the
+                  | home page).  Request the office to issue checks to party vendors, collect money,
+                  | turn into office for deposit and clean clubhouse after events. Responsible for
+                  | confirming through the office a new residents receipt of Welcome/Membership
+                  | packet.  Responsible for recruiting Welcome committee.  If welcome
+                  | committee cannot be recruited, can delegate through HP’s office the Welcome packets
+                  | delivery.
+            tr
+              td
+                p
+                  b Architectural Control Chairman
+            tr
+              td
+                p
+                  | Inform residents of paperwork needed before ACC request can be approved  by the
+                  | board\ACC committee.  Contact resident by written correspondence with
+                  | approval/disapprovals.  Respond to all ACC violations and complaints.  Have
+                  | copies of all covenants phase, I, II, III, IV, and V.  Work closely with Grounds
+                  | director.
+            tr
+              td
+                p
+                  b Administrator
+            tr
+              td
+                p
+                  | Schedule Town Hall and Annual meetings. Set topics for presentation at Town Hall and
+                  | Annual meetings. Notify community of membership issues, and Town Hall and Annual
+                  | meetings via signage, home page and Pipeline. Proofread/approve all outgoing HPRA,
+                  | Inc. correspondence, Pipeline articles, and web site content. Direct and work closely
+                  | with HP’s office administrative assistant.
+      div#tabs-3
