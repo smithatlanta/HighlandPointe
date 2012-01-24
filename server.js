@@ -36,6 +36,7 @@ app.configure(function(){
   app.use(stylus.middleware({ debug:true, force:true, src:__dirname+'/public',dest:__dirname+'/public', compile:compile}));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+  app.use(express.directory(__dirname + '/public'));
 });
 
 function compile(str, path) {
