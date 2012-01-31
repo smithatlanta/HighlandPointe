@@ -26,6 +26,14 @@ var express = require('express') ,
 
 var app = module.exports = express.createServer();
 
+// db
+var Mongoose = require('mongoose');
+var db = Mongoose.connect('mongodb://localhost/hp');
+
+require('./schema');
+var User = db.model('User');
+var Post = db.model('Post');
+
 // Configuration
 
 app.configure(function(){
@@ -33,6 +41,14 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser());
+  app.use(express.session({
+    secret: "north mountain road"
+  }));
+  app.use('/', express.errorHandler({
+    dump: true,
+    stack: true
+  }));
   app.use(stylus.middleware({ debug:true, force:true, src:__dirname+'/public',dest:__dirname+'/public', compile:compile}));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
@@ -51,10 +67,91 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
+app.dynamicHelpers({
+    session: function(req, res) {
+        return req.session;
+    },
+
+    flash: function(req, res) {
+        return req.flash();
+    }
+});
+
+function requiresLogin(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/sessions/new?redir=' + req.url);
+    }
+}
+
 // Routes
 
+// Sessions
+app.get('/sessions/new',
+function(req, res) {
+    res.render('sessions/new', {
+        redir: req.query.redir
+    });
+});
+
+app.post('/sessions',
+function(req, res) {
+    User.authenticate(req.body.login, req.body.password,
+    function(user) {
+        if (user) {
+            req.session.user = user;
+            res.redirect(req.body.redir || '/products');
+        } else {
+            req.flash('warn', 'Login failed');
+            res.render('sessions/new', {
+                redir: req.body.redir
+            });
+        }
+    });
+});
+
+app.get('/sessions/destroy',
+function(req, res) {
+    delete req.session.user;
+    res.redirect('/sessions/new');
+});
+
+// Users
+app.get('/users/new',
+function(req, res) {
+    res.render('users/new', {
+        user: req.body && req.body.user || new User()
+    });
+});
+
+app.post('/users',
+function(req, res) {
+    var user = new User(req.body.user);
+    user.save(function() {
+        res.redirect('/sessions/new');
+    });
+});
+
+app.get('/users/new',
+function(req, res) {
+    res.render('users/new', {
+        user: req.body && req.body.user || new User()
+    });
+});
+
+app.post('/users',
+function(req, res) {
+    var user = new User(req.body.user);
+    user.save(function() {
+        res.redirect('/sessions/new');
+    });
+});
+
+
+app.get('/admin', requiresLogin, function(req, res) { res.render('admin/index') });
 app.get('/', routes.index);
-app.get('/eventcalendar', eventcalendar.index);
+app.get('/eventcalendar', requiresLogin, eventcalendar.index);
 app.get('/contacts', contacts.index);
 app.get('/tennis', tennis.index);
 app.get('/pool', pool.index);
@@ -71,10 +168,6 @@ app.get('/legalstuff', legalstuff.index);
 app.get('/reference', reference.index);
 app.get('/links', links.index);
 app.get('/users', users.index);
-
-app.post('/users', function(req, res) {
-  res.redirect('/users');
-});
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

@@ -23,4 +23,6 @@ p{font:14px Georgia serif}
 #centerheader{position:relative}
 #h3centergoings{position:relative;color:#fff;height:20px;top:-15px;background:#2a6da9;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 #centerbody{position:relative;top:-15px;left:10px;overflow:scroll;height:500px;width:810px}
+#topmain{top:10px;height:485px;overflow:scroll}
+#bottommain{top:490px}
 #bottomcenter{position:relative;top:10px;left:275px;width:702px}

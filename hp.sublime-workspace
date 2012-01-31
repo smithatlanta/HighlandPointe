@@ -3,6 +3,98 @@
 	{
 		"selected_items":
 		[
+			[
+				"tab",
+				"tabs-3"
+			],
+			[
+				"ta",
+				"tabs-2"
+			],
+			[
+				"di",
+				"div"
+			],
+			[
+				"tabs",
+				"tabs-2"
+			],
+			[
+				"tabs-",
+				"tabs-1"
+			],
+			[
+				"St",
+				"Stuff"
+			],
+			[
+				"Lega",
+				"Legal"
+			],
+			[
+				"Qu",
+				"Questions"
+			],
+			[
+				"Ask",
+				"Asked"
+			],
+			[
+				"Freq",
+				"Frequently"
+			],
+			[
+				"mp",
+				"map"
+			],
+			[
+				"reference",
+				"reference"
+			],
+			[
+				"legalstuff",
+				"legalstuff  (variable)"
+			],
+			[
+				"Alb",
+				"Album"
+			],
+			[
+				"N",
+				"Newsletter"
+			],
+			[
+				"News",
+				"newsletter"
+			],
+			[
+				"photoa",
+				"photoalbum  (variable)"
+			],
+			[
+				"newslet",
+				"newsletter  (variable)"
+			],
+			[
+				"photoal",
+				"photoalbum"
+			],
+			[
+				"h",
+				"href"
+			],
+			[
+				"br",
+				"br"
+			],
+			[
+				"hr",
+				"href"
+			],
+			[
+				"relative",
+				"relative"
+			]
 		]
 	},
 	"buffers":
@@ -11,7 +103,23 @@
 			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 2170,
+				"buffer_size": 2356,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/board/index.jade",
+			"settings":
+			{
+				"buffer_size": 8100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/newsletter/index.jade",
+			"settings":
+			{
+				"buffer_size": 22253,
 				"line_ending": "Unix"
 			}
 		}
@@ -48,8 +156,50 @@
 	},
 	"file_history":
 	[
-		"/C/Users/masmith/Documents/My Dropbox/Development/Projects/HighlandPointe/views/acc/index.jade",
-		"/C/Users/masmith/Documents/My Dropbox/Development/Projects/HighlandPointe/app.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/minutes/ShowMinutes.py",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/board/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/newsletter/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/map/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/clubhouse/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/acc/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/pool/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/upstart.conf",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/service_info",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/node-hp-service-manifest.xml",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/links/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/reference/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/teams/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/map/lots/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/tennis/teams/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/map/lots/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/tennis/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/map/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/users/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/routes/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/tennisteams.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/stylesheets/style.styl",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/layout.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/faq/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/contacts/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/photoalbum/index.jade",
+		"/Users/masmith/Dropbox/Development/jqueryui/splitbutton.html",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/index.jade",
+		"/Users/masmith/Dropbox/Development/jqueryui/view-source jqueryui.com demos button splitbutton.html",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/server.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/users/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/socialevents/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/legalstuff/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/eventcalendar/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/acc/index.js",
+		"/Users/masmith/Projects/node/ModuleTesting/readTst.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/faq/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/legalstuff/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/reference/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/links/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/photoalbum/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/newsletter/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/app.js",
 		"/Users/masmith/Dropbox/Development/Projects/tuts/server.js",
 		"/Users/masmith/Documents/schedule.json",
 		"/Users/masmith/Desktop/mongodbnode.sh",
@@ -77,6 +227,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"                p",
+			"p ",
+			"../Reference",
 			"photo"
 		],
 		"highlight": true,
@@ -85,6 +238,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"                text",
+			"text ",
+			"../images"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -103,15 +259,15 @@
 					"file": "server.js",
 					"settings":
 					{
-						"buffer_size": 2170,
+						"buffer_size": 2356,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2170,
-								2170
+								1125,
+								1125
 							]
 						],
 						"settings":
@@ -121,7 +277,63 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 972.0,
+						"translation.y": 183.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/board/index.jade",
+					"settings":
+					{
+						"buffer_size": 8100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8100,
+								8100
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Jade.tmbundle/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1976.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/newsletter/index.jade",
+					"settings":
+					{
+						"buffer_size": 22253,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22253,
+								22253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Jade.tmbundle/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5784.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -135,7 +347,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -162,7 +374,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -185,6 +397,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 292.0,
 	"status_bar_visible": true
 }
