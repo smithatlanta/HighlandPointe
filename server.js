@@ -4,7 +4,6 @@
  */
 
 var express = require('express') ,
-  routes = require('./routes'),
   stylus = require('stylus'),
   eventcalendar = require('./eventcalendar'),
   contacts = require('./contacts'),
@@ -21,8 +20,10 @@ var express = require('express') ,
   faq = require('./faq'),
   legalstuff = require('./legalstuff'),
   reference = require('./reference'),
-  links = require('./links');
-  users = require('./users');
+  links = require('./links'),
+  users = require('./users'),
+  main = require('./main');
+
 
 var app = module.exports = express.createServer();
 
@@ -101,7 +102,7 @@ function(req, res) {
     function(user) {
         if (user) {
             req.session.user = user;
-            res.redirect(req.body.redir || '/products');
+            res.redirect(req.body.redir || '/main');
         } else {
             req.flash('warn', 'Login failed');
             res.render('sessions/new', {
@@ -118,13 +119,6 @@ function(req, res) {
 });
 
 // Users
-app.get('/users/new',
-function(req, res) {
-    res.render('users/new', {
-        user: req.body && req.body.user || new User()
-    });
-});
-
 app.post('/users',
 function(req, res) {
     var user = new User(req.body.user);
@@ -133,25 +127,16 @@ function(req, res) {
     });
 });
 
-app.get('/users/new',
+app.get('/main/new', requiresLogin,
 function(req, res) {
-    res.render('users/new', {
-        user: req.body && req.body.user || new User()
+    res.render('main/new', {
+        post: req.body && req.body.post || new Post()
     });
 });
 
-app.post('/users',
-function(req, res) {
-    var user = new User(req.body.user);
-    user.save(function() {
-        res.redirect('/sessions/new');
-    });
-});
-
-
-app.get('/admin', requiresLogin, function(req, res) { res.render('admin/index') });
-app.get('/', routes.index);
-app.get('/eventcalendar', requiresLogin, eventcalendar.index);
+app.get('/', main.index);
+app.get('/main', main.index);
+app.get('/eventcalendar', eventcalendar.index);
 app.get('/contacts', contacts.index);
 app.get('/tennis', tennis.index);
 app.get('/pool', pool.index);
@@ -167,7 +152,13 @@ app.get('/faq', faq.index);
 app.get('/legalstuff', legalstuff.index);
 app.get('/reference', reference.index);
 app.get('/links', links.index);
-app.get('/users', users.index);
+app.get('/users/new', requiresLogin,
+function(req, res) {
+    res.render('users/new', {
+        user: req.body && req.body.user || new User()
+    });
+});
+app.get('/users', main.index);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
