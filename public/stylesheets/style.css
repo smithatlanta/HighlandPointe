@@ -1,7 +1,7 @@
-body{font:12px Georgia serif;background-color:#c8c8c8}
-text{font:14px Georgia serif}
-a{font:15px Georgia serif}
-p{font:14px Georgia serif}
+body{font-size:12px;font-family:Georgia serif;background-color:#c8c8c8}
+text{font-size:14px;font-family:Georgia serif}
+a{font-size:14px;font-family:Georgia serif}
+p{font-size:14px;font-family:Georgia serif}
 #top{position:absolute;top:2px;left:10px;height:135px;width:1014px;border-style:solid;border-color:#2a6da9;border-width:1px;background-color:#fff;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 #left{position:absolute;top:142px;left:10px;height:550px;width:190px}
 #center{position:absolute;top:142px;left:202px;height:550px;width:822px;background:#e8e8e8;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
@@ -22,7 +22,7 @@ p{font:14px Georgia serif}
 #leftupcomingbody{position:relative;left:2px;top:-25px;height:255px}
 #centerheader{position:relative}
 #h3centergoings{position:relative;color:#fff;height:20px;top:-15px;background:#2a6da9;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
-#centerbody{position:relative;top:-15px;left:10px;overflow:scroll;height:510px;width:810px}
+#centerbody{position:relative;top:-15px;left:10px;overflow:hidden;height:510px;width:810px}
 #topmain{top:10px;height:485px;overflow:scroll}
-#bottommain{top:495px}
+#bottommain{top:495px;overflow:hidden}
 #bottomcenter{position:relative;top:10px;left:275px;width:702px}

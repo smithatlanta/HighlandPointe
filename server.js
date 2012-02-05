@@ -22,14 +22,15 @@ var express = require('express') ,
   reference = require('./reference'),
   links = require('./links'),
   users = require('./users'),
-  main = require('./main');
-
+  post = require('./post'),
+  fs = require('fs');
 
 var app = module.exports = express.createServer();
 
 // db
 var Mongoose = require('mongoose');
 var db = Mongoose.connect('mongodb://localhost/hp');
+//var db = Mongoose.connect('mongodb://masmith-mbp.turner.com/hp');
 
 require('./schema');
 var User = db.model('User');
@@ -40,7 +41,8 @@ var Post = db.model('Post');
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.use(express.bodyParser());
+  app.use(express.logger());
+  app.use(express.bodyParser({uploadDir: __dirname + '/public/uploads'}));
   app.use(express.methodOverride());
   app.use(express.cookieParser());
   app.use(express.session({
@@ -86,23 +88,13 @@ function requiresLogin(req, res, next) {
     }
 }
 
-// Routes
-
-// Sessions
-app.get('/sessions/new',
-function(req, res) {
-    res.render('sessions/new', {
-        redir: req.query.redir
-    });
-});
-
 app.post('/sessions',
 function(req, res) {
     User.authenticate(req.body.login, req.body.password,
     function(user) {
         if (user) {
             req.session.user = user;
-            res.redirect(req.body.redir || '/main');
+            res.redirect(req.body.redir || '/post');
         } else {
             req.flash('warn', 'Login failed');
             res.render('sessions/new', {
@@ -112,13 +104,6 @@ function(req, res) {
     });
 });
 
-app.get('/sessions/destroy',
-function(req, res) {
-    delete req.session.user;
-    res.redirect('/sessions/new');
-});
-
-// Users
 app.post('/users',
 function(req, res) {
     var user = new User(req.body.user);
@@ -127,15 +112,71 @@ function(req, res) {
     });
 });
 
-app.get('/main/new', requiresLogin,
+app.post('/post', function(req, res) {
+  console.log(req.files);
+    // get the temporary location of the file
+    var tmp_path = req.files.post.image.path;
+    // set where the file should actually exists - in this case it is in the "images" directory
+    var target_path = __dirname + '/public/uploads/' + req.files.post.image.name;
+    // move the file from the temporary location to the intended location
+    fs.rename(tmp_path, target_path, function(err) {
+        if (err) throw err;
+        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+        fs.unlink(tmp_path, function() {
+            if (err) throw err;
+            var post = new Post(req.body.post);
+            post.image = '../uploads/' + req.files.post.image.name;
+            console.log(post);
+            post.save(function() {
+            res.redirect('/post');
+          });
+        });
+    });
+});
+app.get('/sessions/destroy',
 function(req, res) {
-    res.render('main/new', {
+    delete req.session.user;
+    res.redirect('/sessions/new');
+});
+
+app.get('/post/new', requiresLogin,
+function(req, res) {
+    res.render('post/new', {
         post: req.body && req.body.post || new Post()
     });
 });
 
-app.get('/', main.index);
-app.get('/main', main.index);
+app.get('/sessions/new',
+function(req, res) {
+    res.render('sessions/new', {
+        redir: req.query.redir
+    });
+});
+
+app.get('/',
+function(req, res) {
+    Post.find({}).sort('addedDate', 'descending').execFind(
+      function(err, posts) {
+        Post.count({}, function( err, count){
+        });
+        res.render('post/index', {
+            posts: posts
+        });
+    });
+});
+
+app.get('/post',
+function(req, res) {
+    Post.find({}).sort('addedDate', 'descending').execFind(
+      function(err, posts) {
+        Post.count({}, function( err, count){
+        });
+        res.render('post/index', {
+            posts: posts
+        });
+    });
+});
+
 app.get('/eventcalendar', eventcalendar.index);
 app.get('/contacts', contacts.index);
 app.get('/tennis', tennis.index);
@@ -158,7 +199,7 @@ function(req, res) {
         user: req.body && req.body.user || new User()
     });
 });
-app.get('/users', main.index);
+app.get('/users', post.index);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

@@ -18,6 +18,10 @@ header-border()
   border-color div-border-color
   border-width 1px
 
+font-adjust(n)
+  font-size n 
+  font-family Georgia serif
+
 h3-adjust()
   color white
   height 20px
@@ -28,16 +32,17 @@ soc-image-adjust()
   width 50px
 
 body
-  font 12px Georgia serif
+  font-adjust(12px)
   background-color back-body-color
 
 text
-  font 14px Georgia serif
+  font-adjust(14px)
 
 a
-  font 15px Georgia serif
+  font-adjust(14px)
+
 p
-  font 14px Georgia serif
+  font-adjust(14px)
 
 #top
   position absolute
@@ -166,7 +171,7 @@ p
   position relative
   top -15px
   left 10px
-  overflow scroll
+  overflow hidden
   height 510px
   width 810px
 
@@ -177,6 +182,7 @@ p
 
 #bottommain
   top 495px
+  overflow hidden
 
 #bottomcenter
   position relative

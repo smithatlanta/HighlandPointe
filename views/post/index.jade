@@ -1,0 +1,10 @@
+!!! 5
+html
+	head
+		title Main
+	body
+		#topmain
+			table(border='0', cellspacing='0', cellpadding='0', width='800')
+				#posts!= partial('post/post', {collection: posts})
+		#bottommain
+			a(href='/post/new') Admin
