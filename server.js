@@ -113,7 +113,7 @@ function(req, res) {
 });
 
 app.post('/post', function(req, res) {
-  console.log(req.files);
+    console.log(req.files.post);
     // get the temporary location of the file
     var tmp_path = req.files.post.image.path;
     // set where the file should actually exists - in this case it is in the "images" directory

@@ -1,6 +1,6 @@
-back-color = #E8E8E8
+back-color = white
 back-body-color = #C8C8C8
-back-h3-color = #2a6da9
+back-h3-color = white
 div-border-color = #2a6da9
 
 border-radius(n)
@@ -20,7 +20,7 @@ header-border()
 
 font-adjust(n)
   font-size n 
-  font-family Georgia serif
+  font-family  Arial,sans-serif
 
 h3-adjust()
   color white
@@ -54,7 +54,7 @@ p
   border-color div-border-color
   border-width 1px
   background-color white
-  border-radius(10px)
+  border-radius(0px)
 
 #left
   position absolute
@@ -68,9 +68,18 @@ p
   top 142px
   left 202px
   height 550px
-  width 822px
+  width 629px
   header-border()
-  border-radius(10px)
+  border-radius(0px)
+
+#right
+  position absolute
+  top 142px
+  left 835px
+  height 550px
+  width 190px  
+  header-border()
+  border-radius(0px)
 
 #bottom
   position absolute
@@ -82,36 +91,63 @@ p
   border-color div-border-color
   border-width 1px
   background-color white
-  border-radius(10px)
+  border-radius(0px)
 
-#topcenter
+#topleft
   position relative
   top 10px
+  left 20px
 
 #lgtop1
   position relative
-  top 5px
-  left 10px
   
-#sptop1
+#topcenter
   position relative
-  font italic 28px Georgia serif
-  color black
-  left 40px
-  top -20px
+  top 10px
+  left 200px
 
-#socialstuff
+#lgtopmain1
+  position relative
+  height 110px
+  width 210px
+  top -100px
+  border-style solid
+  border-width 2px
+  border-color grey
+
+#lgtopmain2
+  position relative
+  height 110px
+  width 210px
+  top -100px
+  left 10px
+  border-style solid
+  border-width 2px
+  border-color grey
+
+#lgtopmain3
+  position relative
+  height 110px
+  width 210px
+  top -100px
+  left 20px
+  border-style solid
+  border-width 2px
+  border-color grey
+
+#topright
   position relative
   top -100px
   left 900px
 
 #lgtopsoc1
+  position relative
+  top -95px  
   soc-image-adjust()
   
 #lgtopsoc2
-  soc-image-adjust()
-
-#lgtopsoc3
+  position relative
+  top -95px 
   soc-image-adjust()
 
 #spacer
@@ -119,37 +155,39 @@ p
 
 #leftresourcesheader
   position relative
+  background-color white
   height 265px
   header-border()
-  border-radius(10px)
+  border-radius(0px)
 
 #h3leftresources
   position relative
   h3-adjust()
   background back-h3-color
   gradient(#55aaee, #003366)
-  border-radius(10px)
+  border-radius(0px)
 
 #leftresourcesbody
   position relative
+  background-color white
   overflow scroll
   top -25px
-  left 40px
+  left 10px
   height 240px
-  width 140px
+  width 172px
 
 #leftupcomingheader
   position relative
   height 275px
   header-border()
-  border-radius(10px)
+  border-radius(0px)
 
 #h3leftupcoming
   position relative
   h3-adjust()
   background back-h3-color
   gradient(#55aaee, #003366)
-  border-radius(10px)
+  border-radius(0px)
 
 #leftupcomingbody
   position relative
@@ -165,23 +203,22 @@ p
   h3-adjust()
   background div-border-color
   gradient(#55aaee, #003366)
-  border-radius(10px)
+  border-radius(0px)
 
 #centerbody
   position relative
   top -15px
   left 10px
-  overflow hidden
+  overflow scro10
   height 510px
-  width 810px
+  width 610px
 
 #topmain
   top 10px
-  height 485px
+  height 475px
   overflow scroll
 
 #bottommain
-  top 495px
   overflow hidden
 
 #bottomcenter
@@ -189,3 +226,22 @@ p
   top 10px
   left 275px
   width 702px
+
+#rightheader
+  position relative
+
+#h3right
+  position relative
+  h3-adjust()
+  background back-h3-color
+  gradient(#55aaee, #003366)
+  border-radius(0px)
+
+#rightbody
+  position relative
+  background-color white
+  overflow scroll
+  top -25px
+  left 10px
+  height 525px
+  width 172px
