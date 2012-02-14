@@ -12,8 +12,8 @@ var Post = new Schema({
         type: String
     },
 	addedDate: {
-		type: Date
-		, default: Date.now
+		type: Date,
+		default: Date.now
 	}
 });
 
@@ -39,7 +39,7 @@ User.static({
         },
         function(err, doc) {
             callback(doc);
-        })
+        });
     }
 });
 

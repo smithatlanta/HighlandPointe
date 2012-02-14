@@ -1,15 +1,10 @@
-tr
-	th(align="CENTER")
-		h2
-			| #{post.name}
-tr
-	td(align="CENTER")
-		if (post.image)
-			p
-				img(src=post.image, height='100', width='100')
-tr
-	td
-		p
-			| #{post.description}
-		br
-		hr
+table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+	tr(style='vertical-align:text-top;')
+		td(style='padding-left: 5px; padding-right: 5px;text-align: center;vertical-align:text-top;')
+			h2
+				| #{post.name}
+			if (post.image)
+				p
+					img(src=post.image, height='100', width='100')
+			p(style='font-size: 11px;')
+				| #{post.description}

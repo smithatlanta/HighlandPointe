@@ -4,7 +4,20 @@ html
 		title Main
 	body
 		#topmain
-			table(border='0', cellspacing='0', cellpadding='0', width='610')
-				#posts!= partial('post/post', {collection: posts})
+			table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+				tr(style='vertical-align:text-top;')
+					if (posts[0])
+						td(width='50%',style='vertical-align:text-top;')
+							!= partial('post/post', {post: posts[0]})
+					if (posts[1])							
+						td(width='50%',style='vertical-align:text-top;')
+							!= partial('post/post', {post: posts[1]})
+				tr
+					if (posts[2])				
+						td(width='50%',style='vertical-align:text-top;')
+							!= partial('post/post', {post: posts[2]})
+					if (posts[3])							
+						td(width='50%',style='vertical-align:text-top;')
+							!= partial('post/post', {post: posts[3]})
 		#bottommain
 			a(href='/post/new') Add Entry
