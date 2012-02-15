@@ -26,7 +26,7 @@ p{font-size:14px;font-family:Arial,sans-serif}
 #centerheader{position:relative}
 #h3centergoings{position:relative;color:#fff;height:20px;top:-15px;background:#2a6da9;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #centerbody{position:relative;top:-15px;left:10px;overflow:scro10;height:510px;width:610px;overflow:scroll}
-#topmain{position:relative;top:0;height:475px;overflow:scroll}
+#topmain{position:relative;top:0;height:480px;width:600px;overflow:hidden}
 #bottommain{overflow:hidden}
 #bottomcenter{position:relative;top:10px;left:275px;width:702px}
 #rightheader{position:relative}

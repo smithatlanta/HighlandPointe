@@ -7,17 +7,17 @@ html
 			table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
 				tr(style='vertical-align:text-top;')
 					if (posts[0])
-						td(width='50%',style='vertical-align:text-top;')
+						td(width='300px',height='240px',style='border-right: 1px solid')
 							!= partial('post/post', {post: posts[0]})
 					if (posts[1])							
-						td(width='50%',style='vertical-align:text-top;')
+						td(width='300px',height='240px')
 							!= partial('post/post', {post: posts[1]})
-				tr
+				tr(style='vertical-align:text-top')
 					if (posts[2])				
-						td(width='50%',style='vertical-align:text-top;')
+						td(width='300px',height='240px',style='border-right: 1px solid')
 							!= partial('post/post', {post: posts[2]})
 					if (posts[3])							
-						td(width='50%',style='vertical-align:text-top;')
+						td(width='300px',height='240px')
 							!= partial('post/post', {post: posts[3]})
 		#bottommain
 			a(href='/post/new') Add Entry
