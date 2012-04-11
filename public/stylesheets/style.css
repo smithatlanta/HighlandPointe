@@ -19,7 +19,7 @@ p{font-size:14px;font-family:Arial,sans-serif}
 #spacer{height:8px}
 #leftresourcesheader{position:relative;background-color:#fff;height:265px;background:#fff;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #h3leftresources{position:relative;color:#fff;height:20px;top:-15px;background:#fff;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-#leftresourcesbody{position:relative;background-color:#fff;overflow:scroll;top:-25px;left:10px;height:240px;width:172px}
+#leftresourcesbody{position:relative;background-color:#fff;overflow:scroll;top:-25px;left:10px;height:230px;width:172px}
 #leftupcomingheader{position:relative;height:275px;background:#fff;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #h3leftupcoming{position:relative;color:#fff;height:20px;top:-15px;background:#fff;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #leftupcomingbody{position:relative;left:2px;top:-25px;height:255px}
