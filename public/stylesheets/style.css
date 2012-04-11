@@ -6,7 +6,7 @@ p{font-size:14px;font-family:Arial,sans-serif}
 #left{position:absolute;top:142px;left:10px;height:550px;width:190px}
 #center{position:absolute;top:142px;left:202px;height:550px;width:629px;background:#fff;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #right{position:absolute;top:142px;left:835px;height:550px;width:190px;background:#fff;border-style:solid;border-color:#2a6da9;border-width:1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-#bottom{position:absolute;top:698px;left:10px;height:30px;width:1014px;border-style:solid;border-color:#2a6da9;border-width:1px;background-color:#fff;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+#bottom{position:absolute;top:698px;left:10px;height:45px;width:1014px;border-style:solid;border-color:#2a6da9;border-width:1px;background-color:#fff;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #topleft{position:relative;top:10px;left:20px}
 #lgtop1{position:relative}
 #topcenter{position:relative;top:10px;left:200px}
@@ -28,7 +28,8 @@ p{font-size:14px;font-family:Arial,sans-serif}
 #centerbody{position:relative;top:-15px;left:10px;overflow:scro10;height:510px;width:610px;overflow:scroll}
 #topmain{position:relative;top:0;height:480px;width:600px;overflow:hidden}
 #bottommain{overflow:hidden}
-#bottomcenter{position:relative;top:10px;left:275px;width:702px}
+#bottomcentertop{position:relative;top:10px;left:325px;width:702px}
+#bottomcenterbottom{position:relative;top:10px;left:275px;width:702px}
 #rightheader{position:relative}
 #h3right{position:relative;color:#fff;height:20px;top:-15px;background:#fff;background:-moz-linear-gradient(top,#5ae,#036);background:-webkit-gradient(linear,left top,left bottom,from(#5ae),to(#036));-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
 #rightbody{position:relative;background-color:#fff;overflow:scroll;top:-25px;left:10px;height:525px;width:172px}
