@@ -14,7 +14,10 @@ var Post = new Schema({
 	addedDate: {
 		type: Date,
 		default: Date.now
-	}
+	},
+    eventDate: {
+        type: Date
+    }
 });
 
 var User = new Schema({

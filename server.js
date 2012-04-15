@@ -115,22 +115,22 @@ function(req, res) {
 app.post('/post', function(req, res) {
     console.log(req.files.post);
     // get the temporary location of the file
-    var tmp_path = req.files.post.image.path;
+//    var tmp_path = req.files.post.image.path;
     // set where the file should actually exists - in this case it is in the "images" directory
-    var target_path = __dirname + '/public/uploads/' + req.files.post.image.name;
+//    var target_path = __dirname + '/public/uploads/' + req.files.post.image.name;
     // move the file from the temporary location to the intended location
-    fs.rename(tmp_path, target_path, function(err) {
-        if (err) throw err;
+//    fs.rename(tmp_path, target_path, function(err) {
+//        if (err) throw err;
         // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-        fs.unlink(tmp_path, function() {
-            if (err) throw err;
+//        fs.unlink(tmp_path, function() {
+//            if (err) throw err;
             var post = new Post(req.body.post);
-            post.image = '../uploads/' + req.files.post.image.name;
+//            post.image = '../uploads/' + req.files.post.image.name;
             console.log(post);
             post.save(function() {
             res.redirect('/post');
-          });
-        });
+//          });
+//        });
     });
 });
 app.get('/sessions/destroy',
@@ -155,7 +155,8 @@ function(req, res) {
 
 app.get('/',
 function(req, res) {
-    Post.find({}).sort('addedDate', 'descending').execFind(
+    var currentTime = new Date();
+    Post.where('eventDate').$gt(currentTime).sort('eventDate', 'ascending').execFind(
       function(err, posts) {
         Post.count({}, function( err, count){
         });
@@ -167,7 +168,8 @@ function(req, res) {
 
 app.get('/post',
 function(req, res) {
-    Post.find({}).sort('addedDate', 'descending').execFind(
+    var currentTime = new Date();
+    Post.where('eventDate').$gt(currentTime).sort('eventDate', 'ascending').execFind(
       function(err, posts) {
         Post.count({}, function( err, count){
         });

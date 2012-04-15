@@ -7,8 +7,7 @@ p
 p
 	textarea(id='post_description', name='post[description]', style='width:400px;height:100px;')= post.description
 p
-	b Event Image:
+	b Event Date:
 p
-	input(type='file', id='post_image', name='post[image]')
-
+	input(type='date', id='post_eventDate', name='post[eventDate]', value=post.eventDate, style='width:100px')
 

@@ -1,10 +1,9 @@
 table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
 	tr(style='vertical-align:text-top;')
-		td(style='padding-left: 5px; padding-right: 5px;text-align: center;vertical-align:text-top;')
-			h2
+		td(style='padding-left: 5px; padding-right: 5px;vertical-align:text-top;')
+			h3(style='font-family:"Georgia", Times, serif;')
 				| #{post.name}
-			if (post.image)
-				p
-					img(src=post.image, height='100', width='100')
-			p(style='font-size: 11px;')
+			label(style='font-family:"Georgia", Times, serif;')
+				| #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+			p(style='font-size: 12px;')
 				| #{post.description}
