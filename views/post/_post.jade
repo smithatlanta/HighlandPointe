@@ -1,9 +1,13 @@
-table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+table(border='0', cellspacing='0', cellpadding='0', width='100%',class='eventTable')
 	tr(style='vertical-align:text-top;')
-		td(style='padding-left: 5px; padding-right: 5px;vertical-align:text-top;')
-			h3(style='font-family:"Georgia", Times, serif;')
+		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;text-decoration:underline')
+			label(class='labelEventHeader')
 				| #{post.name}
-			label(style='font-family:"Georgia", Times, serif;')
+	tr
+		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
+			label(class='labelEventHeaderDate')
 				| #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
-			p(style='font-size: 12px;')
+	tr
+		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
+			p(class='labelEventBody')
 				| #{post.description}

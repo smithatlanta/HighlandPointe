@@ -19,13 +19,14 @@ header-border()
   border-width 1px
 
 font-adjust(n)
-  font-size n 
-  font-family  Arial,sans-serif
+  font-size n
+  font-family:Arial, Helvetica, Utkal, sans-serif
 
 h3-adjust()
   color white
   height 20px
   top -15px
+  font-family:Arial, Helvetica, Utkal, sans-serif
 
 soc-image-adjust()
   height 50px
@@ -166,6 +167,7 @@ p
   background back-h3-color
   gradient(#55aaee, #003366)
   border-radius(0px)
+  padding-left 5px
 
 #leftresourcesbody
   position relative
@@ -175,6 +177,7 @@ p
   left 10px
   height 230px
   width 172px
+  font-adjust(12px)
 
 #leftupcomingheader
   position relative
@@ -188,6 +191,7 @@ p
   background back-h3-color
   gradient(#55aaee, #003366)
   border-radius(0px)
+  padding-left 5px
 
 #leftupcomingbody
   position relative
@@ -204,24 +208,33 @@ p
   background div-border-color
   gradient(#55aaee, #003366)
   border-radius(0px)
+  padding-left 5px
 
 #centerbody
   position relative
   top -15px
   left 10px
-  overflow scro10
   height 510px
   width 610px
   overflow scroll
 
-#topmain
-  position relative
-  top 0px
+#topmainleft
+  position absolute
   height 480px
-  width 600px
+  width 300px
+  left 0px
+  overflow hidden
+
+#topmainright
+  position absolute
+  height 480px
+  width 300px
+  left 300px
   overflow hidden
 
 #bottommain
+  position absolute
+  top 490px
   overflow hidden
 
 #bottomcentertop
@@ -245,6 +258,7 @@ p
   background back-h3-color
   gradient(#55aaee, #003366)
   border-radius(0px)
+  padding-left 5px
 
 #rightbody
   position relative
@@ -254,3 +268,20 @@ p
   left 10px
   height 525px
   width 172px
+  font-adjust(12px)
+
+.labelEventHeader
+  font-adjust(16px)
+  font-weight:bold
+
+.labelEventHeaderDate
+  font-adjust(12px)
+
+.labelEventBody
+  font-adjust(14px)
+
+.eventTable
+  vertical-align:text-top
+  padding-top 5px
+  gradient(#C0C0C0, #C0C0C0)
+  border-radius(5px)
