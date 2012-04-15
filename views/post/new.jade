@@ -5,7 +5,7 @@ html
 		script
 			$('#h3centergoings').text("Administer Main Page");
 	body
-		b Add New Entry
+		b Add New Event
 		form(action='/post', method='post', enctype='multipart/form-data')!= partial('post/post_form', {locals: {post: post}})
 			p
 				input(type='submit')
