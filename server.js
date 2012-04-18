@@ -113,24 +113,9 @@ function(req, res) {
 });
 
 app.post('/post', function(req, res) {
-    console.log(req.files.post);
-    // get the temporary location of the file
-//    var tmp_path = req.files.post.image.path;
-    // set where the file should actually exists - in this case it is in the "images" directory
-//    var target_path = __dirname + '/public/uploads/' + req.files.post.image.name;
-    // move the file from the temporary location to the intended location
-//    fs.rename(tmp_path, target_path, function(err) {
-//        if (err) throw err;
-        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-//        fs.unlink(tmp_path, function() {
-//            if (err) throw err;
-            var post = new Post(req.body.post);
-//            post.image = '../uploads/' + req.files.post.image.name;
-            console.log(post);
-            post.save(function() {
-            res.redirect('/post');
-//          });
-//        });
+    var post = new Post(req.body.post);
+    post.save(function() {
+      res.redirect('/post');
     });
 });
 app.get('/sessions/destroy',
@@ -143,6 +128,18 @@ app.get('/post/new', requiresLogin,
 function(req, res) {
     res.render('post/new', {
         post: req.body && req.body.post || new Post()
+    });
+});
+
+app.get('/post/edit', requiresLogin,
+function(req, res) {
+    Post.find({}).sort('addedDate', 'descending').execFind(
+      function(err, posts) {
+        Post.count({}, function( err, count){
+        });
+        res.render('post/edit', {
+            posts: posts
+        });
     });
 });
 
