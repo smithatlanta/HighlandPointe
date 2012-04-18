@@ -155,8 +155,9 @@ function(req, res) {
 
 app.get('/',
 function(req, res) {
-    var currentTime = new Date();
-    Post.where('eventDate').$gt(currentTime).sort('eventDate', 'ascending').execFind(
+    var currentDatePlusOne = new Date();
+    currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
+    Post.where('eventDate').$gt(currentDatePlusOne).sort('eventDate', 'ascending').execFind(
       function(err, posts) {
         Post.count({}, function( err, count){
         });
@@ -168,8 +169,9 @@ function(req, res) {
 
 app.get('/post',
 function(req, res) {
-    var currentTime = new Date();
-    Post.where('eventDate').$gt(currentTime).sort('eventDate', 'ascending').execFind(
+    var currentDatePlusOne = new Date();
+    currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
+    Post.where('eventDate').$gt(currentDatePlusOne).sort('eventDate', 'ascending').execFind(
       function(err, posts) {
         Post.count({}, function( err, count){
         });
