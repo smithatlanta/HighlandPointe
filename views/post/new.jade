@@ -1,9 +1,9 @@
 !!! 5
 html
 	head
-		title Administer Main Page
+		title Add New Event
 		script
-			$('#h3centergoings').text("Administer Main Page");
+			$('#h3centergoings').text("Add New Event");
 	body
 		b Add New Event
 		form(action='/post', method='post', enctype='multipart/form-data')!= partial('post/post_form', {locals: {post: post}})

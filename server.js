@@ -112,22 +112,60 @@ function(req, res) {
     });
 });
 
-app.post('/post', function(req, res) {
-    var post = new Post(req.body.post);
-    post.save(function() {
-      res.redirect('/post');
-    });
-});
 app.get('/sessions/destroy',
 function(req, res) {
     delete req.session.user;
     res.redirect('/sessions/new');
 });
 
+app.post('/post', function(req, res) {
+    var post = new Post(req.body.post);
+    post.save(function() {
+      res.redirect('/post');
+    });
+});
+
+app.put('/post', function(req, res) {
+  Post.findById(req.body.id,
+    function(err, post) {
+        if (err) {
+            throw err;
+        }
+        else
+        {
+          post.name = req.body.post.name;
+          post.description = req.body.post.description;
+          post.eventDate = req.body.post.eventDate;
+          post.save(function(err) {
+      if (err)
+        throw err;
+      else
+        res.redirect('/post/admin');
+    });
+        }
+    });
+});
+
+app.get('/post/delete/:id', requiresLogin,
+function(req, res) {
+    Post.remove({_id: req.params.id},
+    function(err, posts) {
+        if (err) {
+            throw err;
+        }
+        res.redirect('/post/admin');
+    });
+});
+
 app.get('/post/admin', requiresLogin,
 function(req, res) {
-    res.render('post/admin', {
-        post: req.body && req.body.post || new Post()
+    Post.find({}).sort('addedDate', 'descending').execFind(
+      function(err, posts) {
+        Post.count({}, function( err, count){
+        });
+        res.render('post/admin', {
+            posts: posts
+        });
     });
 });
 
@@ -138,26 +176,16 @@ function(req, res) {
     });
 });
 
-app.get('/post/edit', requiresLogin,
-function(req, res) {
-    Post.find({}).sort('addedDate', 'descending').execFind(
-      function(err, posts) {
-        Post.count({}, function( err, count){
-        });
-        res.render('post/edit', {
-            posts: posts
-        });
-    });
-});
-
 app.get('/post/edit/:id', requiresLogin,
 function(req, res) {
     Post.findById(req.params.id,
-    function(err, posts) {
+    function(err, post) {
         if (err) {
             throw err;
         }
-
+        res.render('post/edit', {
+          post: post, id: req.params.id
+        });
     });
 });
 

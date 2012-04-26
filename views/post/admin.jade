@@ -1,0 +1,38 @@
+!!! 5
+html
+	head
+		title Administer Main Page
+		script
+			$('#h3centergoings').text("Administer Main Page");
+			$(document).ready(function() {
+				$('#postsddl').bind('click', function() {
+					var selIndex  = $('#postsddl')[0].selectedIndex;
+					var selValue = $('#postsddl')[0].options[selIndex].value;					
+				});
+
+				$('#btnAdd').bind('click', function() {
+					window.location = './new';
+				});
+
+				$('#btnDelete').bind('click', function() {
+					var selIndex  = $('#postsddl')[0].selectedIndex;
+					var selValue = $('#postsddl')[0].options[selIndex].value;					
+					window.location = './delete/' + selValue;
+				});
+
+				$('#btnEdit').bind('click', function() {
+					var selIndex  = $('#postsddl')[0].selectedIndex;
+					var selValue = $('#postsddl')[0].options[selIndex].value;					
+					window.location = './edit/' + selValue;
+				});
+
+			});	
+	body
+		select(id='postsddl')
+			each post in posts
+				option(value=post.id)= post.name
+		input(type='button', id='btnDelete', name='delevent', value='Delete Event')
+		input(type='button', id='btnEdit', name='editevent', value='Edit Event')
+		br
+		br
+		input(type='button', id='btnAdd', name='addevent', value='Add Event')
