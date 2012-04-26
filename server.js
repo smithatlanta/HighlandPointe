@@ -124,6 +124,13 @@ function(req, res) {
     res.redirect('/sessions/new');
 });
 
+app.get('/post/admin', requiresLogin,
+function(req, res) {
+    res.render('post/admin', {
+        post: req.body && req.body.post || new Post()
+    });
+});
+
 app.get('/post/new', requiresLogin,
 function(req, res) {
     res.render('post/new', {
@@ -140,6 +147,17 @@ function(req, res) {
         res.render('post/edit', {
             posts: posts
         });
+    });
+});
+
+app.get('/post/edit/:id', requiresLogin,
+function(req, res) {
+    Post.findById(req.params.id,
+    function(err, posts) {
+        if (err) {
+            throw err;
+        }
+
     });
 });
 

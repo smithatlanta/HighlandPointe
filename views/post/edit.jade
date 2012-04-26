@@ -2,7 +2,15 @@
 html
 	head
 		title Main
+		script(type='text/javascript')
+			$(document).ready(function() {
+				$('#postsddl').bind('click', function() {
+					var selIndex  = $('#postsddl')[0].selectedIndex;
+					var selValue = $('#postsddl')[0].options[selIndex].value;
+					
+				});
+			});	
 	body
-		select
+		select(id='postsddl')
 			each post in posts
-				option= post.name
+				option(value=post.id)= post.name
