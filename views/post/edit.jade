@@ -1,16 +1,14 @@
 !!! 5
 html
 	head
-		title Main
-		script(type='text/javascript')
-			$(document).ready(function() {
-				$('#postsddl').bind('click', function() {
-					var selIndex  = $('#postsddl')[0].selectedIndex;
-					var selValue = $('#postsddl')[0].options[selIndex].value;
-					
-				});
-			});	
+		title Edit Event
+		script
+			$('#h3centergoings').text("Edit Event");
 	body
-		select(id='postsddl')
-			each post in posts
-				option(value=post.id)= post.name
+		b Edit Event
+		form(action='/post', method='post', enctype='multipart/form-data')!= partial('post/post_form', {locals: {post: post, id: id}})
+			p
+
+				input(type='hidden', name='_method', value='PUT')
+				input(type='hidden', id='aID', name='id', value=id)
+				input(type='submit')
