@@ -5,9 +5,22 @@ table(border='0', cellspacing='0', cellpadding='0', width='100%',class='eventTab
 				| #{post.name}
 	tr
 		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
-			label(class='labelEventHeaderDate')
-				| #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+			case post.eventDate.getDay()
+				when 0
+					label(class='labelEventHeaderDate') Sunday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+				when 1
+					label(class='labelEventHeaderDate') Monday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+				when 2
+					label(class='labelEventHeaderDate') Tuesday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+				when 3
+					label(class='labelEventHeaderDate') Wednesday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+				when 4
+					label(class='labelEventHeaderDate') Thursday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+				when 5
+					label(class='labelEventHeaderDate') Friday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+				when 6
+					label(class='labelEventHeaderDate') Saturday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
 	tr
 		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
-			p(class='labelEventBody')
+			p(class='labelEventBody', style='white-space:pre;'	) 
 				| #{post.description}
