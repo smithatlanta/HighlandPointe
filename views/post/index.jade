@@ -4,31 +4,8 @@ html
 		title Main
 	body
 		#topmain
-			#topmainleft
-				table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+			table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+				each post in posts
 					tr(style='vertical-align:text-top')
-						if (posts[0])
-							td(width='300px', style='padding-left:10px;padding-bottom:10px')
-								!= partial('post/post', {post: posts[0]})
-					tr(style='vertical-align:text-top')
-						if (posts[1])				
-							td(width='300px', style='padding-left:10px;padding-bottom:10px')
-								!= partial('post/post', {post: posts[1]})
-					tr(style='vertical-align:text-top')
-						if (posts[2])				
-							td(width='300px', style='padding-left:10px')
-								!= partial('post/post', {post: posts[2]})
-			#topmainright				
-				table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
-					tr(style='vertical-align:text-top;')
-						if (posts[3])							
-							td(width='300px', style='padding-left:20px;padding-bottom:10px')
-								!= partial('post/post', {post: posts[3]})
-					tr(style='vertical-align:text-top')
-						if (posts[4])							
-							td(width='300px', style='padding-left:20px;padding-bottom:10px')
-								!= partial('post/post', {post: posts[4]})
-					tr(style='vertical-align:text-top')
-						if (posts[5])							
-							td(width='300px', style='padding-left:20px')
-								!= partial('post/post', {post: posts[5]})
+						td(width='300px', style='padding-bottom:20px')
+							!= partial('post/post', {post: post})

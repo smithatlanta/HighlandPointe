@@ -136,6 +136,7 @@ app.put('/post', function(req, res) {
           post.name = req.body.post.name;
           post.description = req.body.post.description;
           post.eventDate = req.body.post.eventDate;
+          post.staticItem = req.body.post.staticItem;
           post.save(function(err) {
       if (err)
         throw err;
@@ -200,7 +201,8 @@ app.get('/',
 function(req, res) {
     var currentDatePlusOne = new Date();
     currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
-    Post.where('eventDate').$gt(currentDatePlusOne).sort('eventDate', 'ascending').execFind(
+    var query = Post.find({});
+    query.or([ {staticItem : true}, {eventDate : {$gt : currentDatePlusOne}} ]).sort('eventDate', 'ascending').exec(
       function(err, posts) {
         Post.count({}, function( err, count){
         });
@@ -214,7 +216,8 @@ app.get('/post',
 function(req, res) {
     var currentDatePlusOne = new Date();
     currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
-    Post.where('eventDate').$gt(currentDatePlusOne).sort('eventDate', 'ascending').execFind(
+    var query = Post.find({});
+    query.or([ {staticItem : true}, {eventDate : {$gt : currentDatePlusOne}} ]).sort('eventDate', 'ascending').exec(
       function(err, posts) {
         Post.count({}, function( err, count){
         });

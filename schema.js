@@ -17,6 +17,9 @@ var Post = new Schema({
 	},
     eventDate: {
         type: Date
+    },
+    staticItem: {
+        type: Boolean
     }
 });
 
