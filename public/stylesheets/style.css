@@ -34,5 +34,5 @@ p{font-size:14px;font-family:Arial,Helvetica,Utkal,sans-serif}
 #rightbody{position:relative;background-color:#fff;overflow:scroll;top:-25px;left:10px;height:525px;width:172px;font-size:4px;font-family:Arial,Helvetica,Utkal,sans-serif}
 .labelEventHeader{font-size:16px;font-family:Arial,Helvetica,Utkal,sans-serif;font-weight:bold}
 .labelEventHeaderDate{font-size:12px;font-family:Arial,Helvetica,Utkal,sans-serif}
-.labelEventBody{overflow:auto;font-size:14px;font-family:Arial,Helvetica,Utkal,sans-serif}
-.eventTable{vertical-align:text-top;padding-top:5px;background:-moz-linear-gradient(top,#f0f0f0,#f0f0f0);background:-webkit-gradient(linear,left top,left bottom,from(#f0f0f0),to(#f0f0f0));-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}
+.labelEventBody{font-size:14px;font-family:Arial,Helvetica,Utkal,sans-serif}
+.eventTable{padding-top:5px;background:-moz-linear-gradient(top,#f0f0f0,#f0f0f0);background:-webkit-gradient(linear,left top,left bottom,from(#f0f0f0),to(#f0f0f0));-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}
