@@ -35,6 +35,7 @@ var db = Mongoose.connect('mongodb://localhost/hp');
 require('./schema');
 var User = db.model('User');
 var Post = db.model('Post');
+var AccessLog = db.model('AccessLog');
 
 // Configuration
 
@@ -199,6 +200,17 @@ function(req, res) {
 
 app.get('/',
 function(req, res) {
+    var ip_address = null;
+    try {
+      ip_address = req.headers['x-forwarded-for'];
+    }
+    catch ( error ) {
+      ip_address = req.connection.remoteAddress;
+    }
+    var accessLog = new AccessLog();
+    accessLog.ipAddress = ip_address;
+    accessLog.save(function() {
+    });
     var currentDatePlusOne = new Date();
     currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
     var query = Post.find({});

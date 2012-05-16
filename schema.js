@@ -1,6 +1,16 @@
 var mongoose = require("mongoose"),
 Schema = mongoose.Schema;
 
+var AccessLog = new Schema({
+    ipAddress: {
+        type: String
+    },
+    accessDate: {
+        type: Date,
+        default: Date.now
+    }
+});
+
 var Post = new Schema({
     name: {
         type: String
@@ -49,5 +59,6 @@ User.static({
     }
 });
 
+mongoose.model('AccessLog', AccessLog);
 mongoose.model('Post', Post);
 mongoose.model('User', User);
