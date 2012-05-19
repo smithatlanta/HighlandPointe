@@ -129,23 +129,23 @@ app.post('/post', function(req, res) {
 app.put('/post', function(req, res) {
   Post.findById(req.body.id,
     function(err, post) {
-        if (err) {
-            throw err;
-        }
-        else
-        {
-          post.name = req.body.post.name;
-          post.description = req.body.post.description;
-          post.eventDate = req.body.post.eventDate;
-          post.staticItem = req.body.post.staticItem;
-          post.save(function(err) {
-      if (err)
+      if (err) {
         throw err;
+      }
       else
-        res.redirect('/post/admin');
-    });
-        }
-    });
+      {
+        post.name = req.body.post.name;
+        post.description = req.body.post.description;
+        post.eventDate = req.body.post.eventDate;
+        post.staticItem = req.body.post.staticItem;
+        post.save(function(err) {
+          if (err)
+            throw err;
+          else
+            res.redirect('/post/admin');
+        });
+      }
+  });
 });
 
 app.get('/post/delete/:id', requiresLogin,
