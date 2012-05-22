@@ -1,5 +1,6 @@
 app = module.parent.exports.app;
 
+/* Controller routes that basically view a static page */
 var eventcalendar = require('./controllers/eventcalendar');
 var contacts = require('./controllers/contacts');
 var tennis = require('./controllers/tennis');
@@ -19,14 +20,33 @@ var links = require('./controllers/links');
 var users = require('./controllers/users');
 var post = require('./controllers/post');
 
+app.get('/eventcalendar', eventcalendar.index);
+app.get('/contacts', contacts.index);
+app.get('/tennis', tennis.index);
+app.get('/pool', pool.index);
+app.get('/clubhouse', clubhouse.index);
+app.get('/socialevents', socialevents.index);
+app.get('/acc', acc.index);
+app.get('/board', board.index);
+app.get('/newsletter', newsletter.index);
+app.get('/photoalbum', photoalbum.index);
+app.get('/map', map.index);
+app.get('/map/lots', lots.index);
+app.get('/faq', faq.index);
+app.get('/legalstuff', legalstuff.index);
+app.get('/reference', reference.index);
+app.get('/links', links.index);
+
+/* Database / Schema */
 var Mongoose = require('mongoose');
 var db = Mongoose.connect('mongodb://localhost/hp');
-
 require('./model/schema');
 var User = db.model('User');
 var Post = db.model('Post');
 var AccessLog = db.model('AccessLog');
+var Advertiser = db.model('Advertiser');
 
+/* Middleware authentication */
 function requiresLogin(req, res, next) {
     if (req.session.user) {
         next();
@@ -35,6 +55,23 @@ function requiresLogin(req, res, next) {
     }
 }
 
+/* Creating admins for website */
+app.post('/users',
+function(req, res) {
+    var user = new User(req.body.user);
+    user.save(function() {
+        res.redirect('/sessions/new');
+    });
+});
+
+app.get('/users/new', requiresLogin,
+function(req, res) {
+    res.render('users/new', {
+        user: req.body && req.body.user || new User()
+    });
+});
+
+/* Sessions */
 app.post('/sessions',
 function(req, res) {
     User.authenticate(req.body.login, req.body.password,
@@ -51,11 +88,10 @@ function(req, res) {
     });
 });
 
-app.post('/users',
+app.get('/sessions/new',
 function(req, res) {
-    var user = new User(req.body.user);
-    user.save(function() {
-        res.redirect('/sessions/new');
+    res.render('sessions/new', {
+        redir: req.query.redir
     });
 });
 
@@ -65,14 +101,20 @@ function(req, res) {
     res.redirect('/sessions/new');
 });
 
-app.post('/post', function(req, res) {
+/* Events / Activities management*/
+app.post('/post', requiresLogin, 
+function(req, res) {
     var post = new Post(req.body.post);
-    post.save(function() {
-      res.redirect('/post');
+    post.save(function(err) {
+		if (err)
+			throw err;
+        else
+			res.redirect('/post/admin');
     });
 });
 
-app.put('/post', function(req, res) {
+app.put('/post', requiresLogin, 
+function(req, res) {
   Post.findById(req.body.id,
     function(err, post) {
       if (err) {
@@ -137,13 +179,7 @@ function(req, res) {
     });
 });
 
-app.get('/sessions/new',
-function(req, res) {
-    res.render('sessions/new', {
-        redir: req.query.redir
-    });
-});
-
+/*  Entry point which gets posts */
 app.get('/',
 function(req, res) {
     var ip_address = null;
@@ -157,7 +193,7 @@ function(req, res) {
     accessLog.ipAddress = ip_address;
     accessLog.save(function() {
     });
-    var currentDatePlusOne = new Date();
+	var currentDatePlusOne = new Date();
     currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
     var query = Post.find({});
     query.or([ {staticItem : true}, {eventDate : {$gt : currentDatePlusOne}} ]).sort('eventDate', 'ascending').exec(
@@ -169,43 +205,3 @@ function(req, res) {
         });
     });
 });
-
-app.get('/post',
-function(req, res) {
-    var currentDatePlusOne = new Date();
-    currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
-    var query = Post.find({});
-    query.or([ {staticItem : true}, {eventDate : {$gt : currentDatePlusOne}} ]).sort('eventDate', 'ascending').exec(
-      function(err, posts) {
-        Post.count({}, function( err, count){
-        });
-        res.render('post/index', {
-            posts: posts
-        });
-    });
-});
-
-app.get('/eventcalendar', eventcalendar.index);
-app.get('/contacts', contacts.index);
-app.get('/tennis', tennis.index);
-app.get('/pool', pool.index);
-app.get('/clubhouse', clubhouse.index);
-app.get('/socialevents', socialevents.index);
-app.get('/acc', acc.index);
-app.get('/board', board.index);
-app.get('/newsletter', newsletter.index);
-app.get('/photoalbum', photoalbum.index);
-app.get('/map', map.index);
-app.get('/map/lots', lots.index);
-app.get('/faq', faq.index);
-app.get('/legalstuff', legalstuff.index);
-app.get('/reference', reference.index);
-app.get('/links', links.index);
-app.get('/users/new', requiresLogin,
-function(req, res) {
-    res.render('users/new', {
-        user: req.body && req.body.user || new User()
-    });
-});
-
-app.get('/users', post.index);

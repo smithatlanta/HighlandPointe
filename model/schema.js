@@ -47,6 +47,15 @@ var User = new Schema({
     }
 });
 
+var Advertiser = new Schema({
+	referrer: {
+		type: String
+	},
+	text: {
+		type: String
+	}
+});
+
 User.static({
     authenticate: function(login, password, callback) {
         this.findOne({
@@ -62,3 +71,4 @@ User.static({
 mongoose.model('AccessLog', AccessLog);
 mongoose.model('Post', Post);
 mongoose.model('User', User);
+mongoose.model('Advertiser', Advertiser);

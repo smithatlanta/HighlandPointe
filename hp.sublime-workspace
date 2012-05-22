@@ -1,0 +1,360 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"half",
+				"halfPostsRaw"
+			],
+			[
+				"sel",
+				"selValue"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"fo",
+				"font-adjust"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"d",
+				"Date"
+			],
+			[
+				"bo",
+				"border-style"
+			],
+			[
+				"border",
+				"border-width"
+			],
+			[
+				"tab",
+				"tabs-3"
+			],
+			[
+				"ta",
+				"tabs-2"
+			],
+			[
+				"di",
+				"div"
+			],
+			[
+				"tabs",
+				"tabs-2"
+			],
+			[
+				"tabs-",
+				"tabs-1"
+			],
+			[
+				"St",
+				"Stuff"
+			],
+			[
+				"Lega",
+				"Legal"
+			],
+			[
+				"Qu",
+				"Questions"
+			],
+			[
+				"Ask",
+				"Asked"
+			],
+			[
+				"Freq",
+				"Frequently"
+			],
+			[
+				"mp",
+				"map"
+			],
+			[
+				"reference",
+				"reference"
+			],
+			[
+				"legalstuff",
+				"legalstuff  (variable)"
+			],
+			[
+				"Alb",
+				"Album"
+			],
+			[
+				"N",
+				"Newsletter"
+			],
+			[
+				"News",
+				"newsletter"
+			],
+			[
+				"photoa",
+				"photoalbum  (variable)"
+			],
+			[
+				"newslet",
+				"newsletter  (variable)"
+			],
+			[
+				"photoal",
+				"photoalbum"
+			],
+			[
+				"h",
+				"href"
+			],
+			[
+				"br",
+				"br"
+			],
+			[
+				"hr",
+				"href"
+			],
+			[
+				"relative",
+				"relative"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 106.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 136.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/server.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_post_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/schema.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/stylesheets/style.styl",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_post.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/pool/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/contacts/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/reference/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/links/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/edit.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/admin.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/layout.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/faq/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/clubhouse/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/acc/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/sessions/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/legalstuff/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/photoalbum/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/node-hp.conf",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/map/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/newsletter/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/eventcalendar/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/socialevents/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/acc/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/board/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/clubhouse/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/contacts/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/eventcalendar/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/faq/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/legalstuff/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/photoalbum/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/pool/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/post/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/reference/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/socialevents/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/tennis/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/users/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/links/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/map/lots/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/map/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/newsletter/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_photo_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/stylesheets/style.css",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/main/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/main/_main.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/main/main.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/main/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/main/_main_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/routes/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/admin/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/board/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/users/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/users/_user_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/minutes/ShowMinutes.py",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/upstart.conf",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/service_info",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/node-hp-service-manifest.xml",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/teams/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/map/lots/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/tennis/teams/index.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/users/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/tennisteams.jade",
+		"/Users/masmith/Dropbox/Development/jqueryui/splitbutton.html",
+		"/Users/masmith/Dropbox/Development/jqueryui/view-source jqueryui.com demos button splitbutton.html",
+		"/Users/masmith/Projects/node/ModuleTesting/readTst.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/app.js",
+		"/Users/masmith/Dropbox/Development/Projects/tuts/server.js",
+		"/Users/masmith/Documents/schedule.json",
+		"/Users/masmith/Desktop/mongodbnode.sh",
+		"/Users/masmith/Documents/untitled.json",
+		"/Users/masmith/Documents/network.json",
+		"/Users/masmith/Desktop/eclipse/plugins/org.eclipse.pde.build_3.6.2.R36x_20110203/templates/packager/packaging.properties",
+		"/Users/masmith/Projects/Node/tuts/server.js",
+		"/Users/masmith/Projects/Node/tuts/views/products/delete.jade",
+		"/Users/masmith/Projects/Node/tuts/views/products/show.jade",
+		"/Users/masmith/Projects/pusher/testpusher.html"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"topmain",
+			"';",
+			"align='CENTER'",
+			"800",
+			"750",
+			"800",
+			"main",
+			"                p",
+			"p ",
+			"../Reference",
+			"photo"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"align='LEFT'",
+			"610",
+			"                text",
+			"text ",
+			"../images"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 292.0,
+	"status_bar_visible": true
+}
