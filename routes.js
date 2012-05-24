@@ -205,3 +205,15 @@ function(req, res) {
         });
     });
 });
+
+app.get('/advertisers',
+function(req, res) {
+    Advertiser.find({}).sort('sortOrder', 'ascending').execFind(
+    function(err, advertisers) {
+        if(err){
+            throw err;
+        }
+        res.contentType('application/json');
+        res.json(advertisers);
+    });
+});
