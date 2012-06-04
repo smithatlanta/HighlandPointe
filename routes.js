@@ -101,8 +101,10 @@ function(req, res) {
     res.redirect('/sessions/new');
 });
 
-/* Events / Activities management*/
-app.post('/post', requiresLogin, 
+/* Events / Activities management */
+
+/* insert */
+app.post('/post', requiresLogin,
 function(req, res) {
     var post = new Post(req.body.post);
     post.save(function(err) {
@@ -113,7 +115,8 @@ function(req, res) {
     });
 });
 
-app.put('/post', requiresLogin, 
+/* update */
+app.put('/post', requiresLogin,
 function(req, res) {
   Post.findById(req.body.id,
     function(err, post) {
@@ -136,6 +139,7 @@ function(req, res) {
   });
 });
 
+/* delete */
 app.get('/post/delete/:id', requiresLogin,
 function(req, res) {
     Post.remove({_id: req.params.id},
@@ -147,6 +151,7 @@ function(req, res) {
     });
 });
 
+/* page routes */
 app.get('/post/admin', requiresLogin,
 function(req, res) {
     Post.find({}).sort('addedDate', 'descending').execFind(
@@ -174,12 +179,94 @@ function(req, res) {
             throw err;
         }
         res.render('post/edit', {
-          post: post, id: req.params.id
+            post: post, id: req.params.id
         });
     });
 });
 
-/*  Entry point which gets posts */
+/* Sponsored Link Management*/
+
+/* insert */
+app.post('/adv', requiresLogin,
+function(req, res) {
+    var advertiser = new Advertiser(req.body.advertiser);
+    advertiser.save(function(err) {
+        if (err)
+            throw err;
+        else
+            res.redirect('/adv/admin');
+    });
+});
+
+/* update */
+app.put('/adv', requiresLogin,
+function(req, res) {
+  Advertiser.findById(req.body.id,
+    function(err, advertiser) {
+      if (err) {
+        throw err;
+      }
+      else
+      {
+        advertiser.referrer = req.body.advertiser.referrer;
+        advertiser.textToDisplay = req.body.advertiser.textToDisplay;
+        advertiser.sortOrder = req.body.advertiser.sortOrder;
+        advertiser.save(function(err) {
+          if (err)
+            throw err;
+          else
+            res.redirect('/adv/admin');
+        });
+      }
+  });
+});
+
+/* delete */
+app.get('/adv/delete/:id', requiresLogin,
+function(req, res) {
+    Advertiser.remove({_id: req.params.id},
+    function(err, advertiser) {
+        if (err) {
+            throw err;
+        }
+        res.redirect('/adv/admin');
+    });
+});
+
+/* page routes */
+app.get('/adv/admin', requiresLogin,
+function(req, res) {
+    Advertiser.find({}).sort('sortOrder', 'ascending').execFind(
+      function(err, advs) {
+        Advertiser.count({}, function( err, count){
+        });
+        res.render('adv/admin', {
+            advs: advs
+        });
+    });
+});
+
+app.get('/adv/new', requiresLogin,
+function(req, res) {
+    res.render('adv/new', {
+        advertiser: req.body && req.body.advertiser || new Advertiser()
+    });
+});
+
+app.get('/adv/edit/:id', requiresLogin,
+function(req, res) {
+    Advertiser.findById(req.params.id,
+    function(err, advertiser) {
+        if (err) {
+            throw err;
+        }
+        res.render('adv/edit', {
+            advertiser: advertiser, id: req.params.id
+        });
+    });
+});
+
+/*  Main entry point */
 app.get('/',
 function(req, res) {
     var ip_address = null;
@@ -206,6 +293,7 @@ function(req, res) {
     });
 });
 
+/* ajax calls */
 app.get('/advertisers',
 function(req, res) {
     Advertiser.find({}).sort('sortOrder', 'ascending').execFind(

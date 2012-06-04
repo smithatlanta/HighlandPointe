@@ -1,0 +1,38 @@
+!!! 5
+html
+	head
+		title Administer Sponsor Links
+		script
+			$('#h3centergoings').text("Administer Sponsor Links");
+			$(document).ready(function() {
+				$('#advsddl').bind('click', function() {
+					var selIndex  = $('#advsddl')[0].selectedIndex;
+					var selValue = $('#advsddl')[0].options[selIndex].value;					
+				});
+
+				$('#btnAdd').bind('click', function() {
+					window.location = './new';
+				});
+
+				$('#btnDelete').bind('click', function() {
+					var selIndex  = $('#advsddl')[0].selectedIndex;
+					var selValue = $('#advsddl')[0].options[selIndex].value;					
+					window.location = './delete/' + selValue;
+				});
+
+				$('#btnEdit').bind('click', function() {
+					var selIndex  = $('#advsddl')[0].selectedIndex;
+					var selValue = $('#advsddl')[0].options[selIndex].value;
+					window.location = './edit/' + selValue;
+				});
+
+			});	
+	body
+		select(id='advsddl')
+			each adv in advs
+				option(value=adv.id)= adv.textToDisplay
+		input(type='button', id='btnDelete', name='deladv', value='Delete Sponsor')
+		input(type='button', id='btnEdit', name='editadv', value='Edit Sponsor')
+		br
+		br
+		input(type='button', id='btnAdd', name='addadv', value='Add Sponsor')

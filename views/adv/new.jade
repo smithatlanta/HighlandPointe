@@ -1,0 +1,11 @@
+!!! 5
+html
+	head
+		title Add Sponsor Link
+		script
+			$('#h3centergoings').text("Add Sponsor Link");
+	body
+		b Add Sponsor Link
+		form(action='/adv', method='post', enctype='multipart/form-data')!= partial('adv/adv_form', {locals: {advertiser: advertiser}})
+			p
+				input(type='submit')

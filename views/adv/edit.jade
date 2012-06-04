@@ -1,0 +1,13 @@
+!!! 5
+html
+	head
+		title Edit Sponsor Link
+		script
+			$('#h3centergoings').text("Edit Sponsor Links");
+	body
+		b Edit Sponsor Link
+		form(action='/adv', method='post', enctype='multipart/form-data')!= partial('adv/adv_form', {locals: {advertiser: advertiser, id: id}})
+			p
+				input(type='hidden', name='_method', value='PUT')
+				input(type='hidden', id='aID', name='id', value=id)
+				input(type='submit')

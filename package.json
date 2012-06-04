@@ -7,5 +7,6 @@
     , "jade": "latest"
     , "stylus": "latest"
     , "mongoose": "latest"
+    , "long-stack-traces": "latest"
   }
 }

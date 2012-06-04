@@ -1,0 +1,18 @@
+script
+	function aList(data) {
+		var advList = "";
+		for (var i in data) {            
+			advList += "</br></br>" + "<a href=" + data[i].referrer + ">" + data[i].textToDisplay + "</a>";         
+		}
+		return advList;
+	}
+	$(document).ready(function() {
+		$.ajax({
+			url: "./advertisers"
+		}).done(function ( data ) {
+			$('#rightbody').append(aList(data));
+		});
+	});
+#rightheader
+	h3(id='h3right') Sponsored Links
+	#rightbody

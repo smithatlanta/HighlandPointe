@@ -8,7 +8,6 @@ html
 		b Edit Event
 		form(action='/post', method='post', enctype='multipart/form-data')!= partial('post/post_form', {locals: {post: post, id: id}})
 			p
-
 				input(type='hidden', name='_method', value='PUT')
 				input(type='hidden', id='aID', name='id', value=id)
 				input(type='submit')

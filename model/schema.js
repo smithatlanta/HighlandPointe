@@ -51,9 +51,12 @@ var Advertiser = new Schema({
 	referrer: {
 		type: String
 	},
-	text: {
+	textToDisplay: {
 		type: String
-	}
+	},
+    sortOrder: {
+        type: Number
+    }
 });
 
 User.static({

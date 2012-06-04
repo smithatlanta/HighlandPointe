@@ -8,86 +8,14 @@ html
     link(rel='stylesheet', href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css')
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js')
     script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js')
-    script
-      function aList(data) {
-          var advList = "";
-          for (var i in data) {            
-            advList += "</br></br>" + "<a href=" + data[i].referrer + ">" + data[i].text + "</a>";         
-          }
-          return advList;
-      }
-      $(document).ready(function() {
-        $.ajax({
-          url: "./advertisers"
-        }).done(function ( data ) {
-          $('#rightbody').append(aList(data));
-        });
-      });
   body
     #top
-      #topleft
-        img(id='lgtop1', src='/images/SmallTransparentLogo.gif')
-      #topcenter
-        img(id='lgtopmain1', src='/images/PanSmall.jpg')
-        img(id='lgtopmain2', src='/images/PoolMainSmall.jpg')
-        img(id='lgtopmain3', src='/images/WinterSmall.jpg')
-      #topright
-        a(href='http://www.facebook.com/pages/Highland-Pointe/106229682771352') 
-          img(id='lgtopsoc1', src='/images/facebook_badge.png')
-        a(href='https://twitter.com/#!/HighlandPteEC')
-          img(id='lgtopsoc2', src='/images/twitter_badge.png')
+      include includes/top
     #left
-      #leftresourcesheader
-        h3(id='h3leftresources') Resources
-        #leftresourcesbody
-          a(href='/') Main
-          br
-          a(href='/eventcalendar') Event Calendar
-          br
-          a(href='/contacts') Contacts
-          br
-          a(href='/tennis') Tennis
-          br
-          a(href='/pool') Pool
-          br
-          a(href='/clubhouse') Clubhouse
-          br
-          a(href='/acc') ACC
-          br
-          a(href='/board') Board
-          br
-          a(href='/newsletter') NewsLetter
-          br
-          a(href='/photoalbum') Photo Album
-          br
-          a(href='/map') Map
-          br
-          a(href='/faq') FAQ
-          br
-          a(href='/legalstuff') Legal Stuff
-          br
-          a(href='/reference') Policies and Forms
-          br
-          a(href='/links') Community Links
-          br
-          a(href='/post/admin') Event Management
-      #spacer
-      #leftupcomingheader
-        h3(id='h3leftupcoming') Upcoming Events
-        #leftupcomingbody
-          iframe(src='https://www.google.com/calendar/b/0/embed?src=highlandpointe@gmail.com&src=03n0lqhlvftvqslf2bai6rfmd0@group.calendar.google.com&src=aqm1jbopopf53q4bbtpfmb3bo4@group.calendar.google.com&showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&wkst=1&bgcolor=%23E8E8E8&color=%23E8E8E8&ctz=America%2FNew_York&height=245', style='border-width: 0;', width='180', frameborder='0', height='245')
+      include includes/left
     #center
-      #centerheader
-        h3(id='h3centergoings') What's happening at Highland Pointe
-        #centerbody
-          #container!= body
+      include includes/center
     #right
-      #rightheader
-        h3(id='h3right') Sponsored Links
-        #rightbody
+      include includes/right
     #bottom
-      #bottomcentertop
-        a(href='https://app.expressemailmarketing.com/Survey.aspx?SFID=27684') Click here to receive Highland Pointe Broadcast emails
-        br
-      #bottomcenterbottom
-        text © 2012 Highland Pointe Recreation Association, Inc. All rights reserved.
+      include includes/bottom

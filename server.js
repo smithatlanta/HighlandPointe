@@ -1,7 +1,9 @@
 var express = require('express') ,
   stylus = require('stylus'),
   fs = require('fs');
- 
+
+require("long-stack-traces");
+
 var app = module.exports = express.createServer();
 
 // Check node_env, if not set default to development
