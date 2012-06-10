@@ -380,7 +380,7 @@ function(req, res) {
 	var currentDatePlusOne = new Date();
     currentDatePlusOne.setDate(currentDatePlusOne.getDate()-2);
     var query = Post.find({});
-    query.or([ {staticItem : true}, {eventDate : {$gt : currentDatePlusOne}} ]).sort('eventDate', 'ascending').exec(
+    query.or([ {staticItem : true}, {eventDate : {$gt : currentDatePlusOne}} ]).sort('eventDate', 'ascending').sort('addedDate','descending').exec(
       function(err, posts) {
         Post.count({}, function( err, count){
         });
