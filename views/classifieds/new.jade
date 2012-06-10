@@ -1,0 +1,11 @@
+!!! 5
+html
+	head
+		title Add Classified
+		script
+			$('#h3centergoings').text("Add New Classified");
+	body
+		b Add Classified
+		form(action='/classifieds', method='post', enctype='multipart/form-data')!= partial('classifieds/post_form', {locals: {classified: classified}})
+			p
+				input(type='submit')

@@ -59,6 +59,15 @@ var Advertiser = new Schema({
     }
 });
 
+var Classified = new Schema({
+    name: {
+        type: String
+    },
+    description: {
+        type: String
+    }
+});
+
 User.static({
     authenticate: function(login, password, callback) {
         this.findOne({
@@ -75,3 +84,4 @@ mongoose.model('AccessLog', AccessLog);
 mongoose.model('Post', Post);
 mongoose.model('User', User);
 mongoose.model('Advertiser', Advertiser);
+mongoose.model('Classified', Classified);

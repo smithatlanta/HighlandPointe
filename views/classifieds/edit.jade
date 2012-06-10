@@ -1,0 +1,13 @@
+!!! 5
+html
+	head
+		title Edit Classified
+		script
+			$('#h3centergoings').text("Edit Classified");
+	body
+		b Edit Classified
+		form(action='/classifieds', method='post', enctype='multipart/form-data')!= partial('classifieds/post_form', {locals: {classified: classified, id: id}})
+			p
+				input(type='hidden', name='_method', value='PUT')
+				input(type='hidden', id='aID', name='id', value=id)
+				input(type='submit')

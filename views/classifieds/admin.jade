@@ -1,0 +1,38 @@
+!!! 5
+html
+	head
+		title Administer Classifieds
+		script
+			$('#h3centergoings').text("Administer Classifieds");
+			$(document).ready(function() {
+				$('#classifiedsddl').bind('click', function() {
+					var selIndex  = $('#classifiedsddl')[0].selectedIndex;
+					var selValue = $('#classifiedsddl')[0].options[selIndex].value;					
+				});
+
+				$('#btnAdd').bind('click', function() {
+					window.location = './new';
+				});
+
+				$('#btnDelete').bind('click', function() {
+					var selIndex  = $('#classifiedsddl')[0].selectedIndex;
+					var selValue = $('#classifiedsddl')[0].options[selIndex].value;					
+					window.location = './delete/' + selValue;
+				});
+
+				$('#btnEdit').bind('click', function() {
+					var selIndex  = $('#classifiedsddl')[0].selectedIndex;
+					var selValue = $('#classifiedsddl')[0].options[selIndex].value;					
+					window.location = './edit/' + selValue;
+				});
+
+			});	
+	body
+		select(id='classifiedsddl')
+			each classified in classifieds
+				option(value=classified.id)= classified.name
+		input(type='button', id='btnDelete', name='delclassified', value='Delete Classified')
+		input(type='button', id='btnEdit', name='editclassified', value='Edit Classified')
+		br
+		br
+		input(type='button', id='btnAdd', name='addclassified', value='Add Classified')

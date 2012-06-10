@@ -1,0 +1,18 @@
+!!! 5
+html
+	head
+		title Upload Pictures Complete
+		script
+			$('#h3centergoings').text("Upload Pictures Complete");
+	body
+		#topmain
+		label(style='font-weight:bold')
+			| The following files were uploaded successfully and the webmaster has been alerted. They will be uploaded to flickr in the next week or so.
+			br
+			br
+			table(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+				each file in files
+					tr(style='vertical-align:text-top')
+						td(width='300px', style='padding-bottom:20px')
+							label(style='font-weight:normal')
+								| #{file.name}

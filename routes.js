@@ -19,6 +19,7 @@ var reference = require('./controllers/reference');
 var links = require('./controllers/links');
 var users = require('./controllers/users');
 var post = require('./controllers/post');
+var classifieds = require('./controllers/classifieds');
 
 app.get('/eventcalendar', eventcalendar.index);
 app.get('/contacts', contacts.index);
@@ -45,6 +46,7 @@ var User = db.model('User');
 var Post = db.model('Post');
 var AccessLog = db.model('AccessLog');
 var Advertiser = db.model('Advertiser');
+var Classified = db.model('Classified');
 
 /* Middleware authentication */
 function requiresLogin(req, res, next) {
@@ -184,6 +186,101 @@ function(req, res) {
     });
 });
 
+/* Classifieds management */
+
+/* insert */
+app.post('/classifieds', requiresLogin,
+function(req, res) {
+    var classified = new Classified(req.body.classified);
+    classified.save(function(err) {
+        if (err)
+            throw err;
+        else
+            res.redirect('/classifieds/admin');
+    });
+});
+
+/* update */
+app.put('/classifieds', requiresLogin,
+function(req, res) {
+  Classified.findById(req.body.id,
+    function(err, classified) {
+      if (err) {
+        throw err;
+      }
+      else
+      {
+        classified.name = req.body.classified.name;
+        classified.description = req.body.classified.description;
+        classified.save(function(err) {
+          if (err)
+            throw err;
+          else
+            res.redirect('/classifieds/admin');
+        });
+      }
+  });
+});
+
+/* delete */
+app.get('/classifieds/delete/:id', requiresLogin,
+function(req, res) {
+    Classified.remove({_id: req.params.id},
+    function(err, classified) {
+        if (err) {
+            throw err;
+        }
+        res.redirect('/classifieds/admin');
+    });
+});
+
+/* page routes */
+app.get('/classifieds',
+function(req, res) {
+    var query = Classified.find(
+      function(err, classifieds) {
+        Classified.count({}, function( err, count){
+        });
+        res.render('classifieds/index', {
+            classifieds: classifieds
+        });
+    });
+});
+
+
+app.get('/classifieds/admin', requiresLogin,
+function(req, res) {
+    Classified.find({}).execFind(
+      function(err, classifieds) {
+        Classified.count({}, function( err, count){
+        });
+        res.render('classifieds/admin', {
+            classifieds: classifieds
+        });
+    });
+});
+
+app.get('/classifieds/new', requiresLogin,
+function(req, res) {
+    res.render('classifieds/new', {
+        classified: req.body && req.body.classified || new Classified()
+    });
+});
+
+app.get('/classifieds/edit/:id', requiresLogin,
+function(req, res) {
+    Classified.findById(req.params.id,
+    function(err, classified) {
+        if (err) {
+            throw err;
+        }
+        res.render('classifieds/edit', {
+            classified: classified, id: req.params.id
+        });
+    });
+});
+
+
 /* Sponsored Link Management*/
 
 /* insert */
@@ -304,4 +401,33 @@ function(req, res) {
         res.contentType('application/json');
         res.json(advertisers);
     });
+});
+
+app.get('/upload',
+function(req, res) {
+    res.render('upload/submit');
+});
+
+app.post('/upload',
+function(req, res) {
+    var files;
+    for(i=0; i<req.files.upload.length; i++) {
+        files += req.files.upload[i].name + '\n';
+    }
+    
+    var Email = require('email').Email;
+    var myMsg = new Email(
+        { from: "smithatlanta@gmail.com", to: "smithatlanta@gmail.com", subject: "Files Uploaded" , body: files }
+    );
+    myMsg.send(function(err){
+        if(err){
+            throw err;
+        }
+    });
+    res.render('upload/uploadcomplete', { files: req.files.upload });
+});
+
+app.get('/upload/uploadcomplete',
+function(req, res) {
+    res.render('upload/uploadcomplete');
 });

@@ -1,11 +1,11 @@
 !!! 5
 html
 	head
-		title Add New Event
+		title Add Event
 		script
-			$('#h3centergoings').text("Add New Event");
+			$('#h3centergoings').text("Add Event");
 	body
-		b Add New Event
+		b Add Event
 		form(action='/post', method='post', enctype='multipart/form-data')!= partial('post/post_form', {locals: {post: post}})
 			p
 				input(type='submit')

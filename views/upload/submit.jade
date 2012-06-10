@@ -1,0 +1,14 @@
+!!! 5
+html
+	head
+		title Upload Pictures
+		script
+			$('#h3centergoings').text("Upload Pictures");
+	body
+		b Upload Pictures - you can upload multiple pictures at one time.
+		form(action='/upload', method='post', enctype='multipart/form-data')
+			p
+				input(type="file", name="upload", multiple="multiple")
+				br
+				br
+				input(type='submit', value="Upload Pictures")
