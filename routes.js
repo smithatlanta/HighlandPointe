@@ -40,7 +40,7 @@ app.get('/links', links.index);
 
 /* Database / Schema */
 var Mongoose = require('mongoose');
-var db = Mongoose.connect('mongodb://localhost/hp');
+var db = Mongoose.connect('mongodb:hp2012:hp2012@ds033897.mongolab.com:33897/hp');
 require('./model/schema');
 var User = db.model('User');
 var Post = db.model('Post');

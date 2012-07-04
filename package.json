@@ -3,11 +3,12 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "express": "latest"
+      "express": "v2.5.x"
     , "jade": "latest"
     , "stylus": "latest"
     , "mongoose": "latest"
     , "nib": "latest"
     , "email": "latest"
+    , "connect-flash": "latest"
   }
 }

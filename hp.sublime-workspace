@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pro",
+				"process.EventEmitter();"
+			],
+			[
 				"half",
 				"halfPostsRaw"
 			],
@@ -131,30 +135,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "views/layout.jade",
-			"settings":
-			{
-				"buffer_size": 689,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "routes.js",
-			"settings":
-			{
-				"buffer_size": 7704,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "server.js",
-			"settings":
-			{
-				"buffer_size": 1610,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -188,21 +168,38 @@
 	},
 	"file_history":
 	[
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/includes/left.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/faq/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/routes.js",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/server.js",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_post_form.jade",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/schema.js",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/stylesheets/style.styl",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_post.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/upload/uploadcomplete.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/package.json",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/upload/submit.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/classifieds/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/classifieds/index.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/classifieds/edit.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/classifieds/_post.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/classifieds/_post_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/classifieds/admin.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/model/schema.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/controllers/classifieds/index.json",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/adv/edit.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/public/stylesheets/style.styl",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_post_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/adv/_adv_form.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/edit.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/layout.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/adv/admin.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/adv/new.jade",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/schema.js",
+		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/_post.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/pool/index.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/contacts/index.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/reference/index.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/links/index.jade",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/new.jade",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/edit.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/post/admin.jade",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/layout.jade",
-		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/faq/index.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/tennis/index.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/clubhouse/index.jade",
 		"/Users/masmith/Dropbox/Development/Projects/HighlandPointe/views/acc/index.jade",
@@ -319,240 +316,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "views/layout.jade",
-					"settings":
-					{
-						"buffer_size": 689,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Jade/Jade.tmbundle/Syntaxes/Jade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "routes.js",
-					"settings":
-					{
-						"buffer_size": 7704,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								954,
-								954
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 357.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "server.js",
-					"settings":
-					{
-						"buffer_size": 1610,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1215,
-								1215
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
