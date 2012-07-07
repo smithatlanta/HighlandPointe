@@ -5,10 +5,18 @@ html
 		script
 			$('#h3centergoings').text("Upload Pictures");
 	body
-		b Upload Pictures - you can upload multiple pictures at one time.
+		b Upload Pictures - you can upload multiple pictures at one time.  The name, email, and event information is needed if I have questions.  It's not stored anywhere.
 		form(action='/upload', method='post', enctype='multipart/form-data')
 			p
-				input(type="file", name="upload", multiple="multiple")
+				label Submitter's Name:
+				input(type="text", name="username")
 				br
+				label Submitter's email address:
+				input(type="text", name="emailaddr")
+				br
+				label Event:
+				input(type="text", name="eventname")
+				br
+				input(type="file", name="upload", multiple="multiple")
 				br
 				input(type='submit', value="Upload Pictures")

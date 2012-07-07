@@ -410,14 +410,18 @@ function(req, res) {
 
 app.post('/upload',
 function(req, res) {
-    var files;
+	var files;
     for(i=0; i<req.files.upload.length; i++) {
-        files += req.files.upload[i].name + '\n';
+		if(req.files.upload[i].name !== undefined) {
+        	files += req.files.upload[i].name + '\n';
+		}
     }
     
     var Email = require('email').Email;
-    var myMsg = new Email(
-        { from: "smithatlanta@gmail.com", to: "smithatlanta@gmail.com", subject: "Files Uploaded" , body: files }
+	var bodyMsg = "Submitter: " + req.body.username + "\nEmail Address: " + req.body.emailaddr + "\nEvent: " + req.body.eventname + "\nFiles: " + files;
+    console.log(bodyMsg);
+	var myMsg = new Email(
+        { from: "smithatlanta@gmail.com", to: "smithatlanta@gmail.com", subject: "Files Uploaded" , body: bodyMsg }
     );
     myMsg.send(function(err){
         if(err){
