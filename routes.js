@@ -425,7 +425,7 @@ function(req, res) {
     );
     myMsg.send(function(err){
         if(err){
-            throw err;
+            console.log(err);
         }
     });
     res.render('upload/uploadcomplete', { files: req.files.upload });
