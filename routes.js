@@ -411,10 +411,18 @@ function(req, res) {
 app.post('/upload',
 function(req, res) {
 	var files;
-    for(i=0; i<req.files.upload.length; i++) {
-		if(req.files.upload[i].name !== undefined) {
-        	files += req.files.upload[i].name + '\n';
-		}
+    var fileNames = new Array();
+    if(req.files.upload.name !== undefined) {
+        files += req.files.upload.name + '\n';
+        fileNames.push(req.files.upload.name);
+    }
+    else {
+        for(i=0; i<req.files.upload.length; i++) {
+            if(req.files.upload[i].name !== undefined) {
+                files += req.files.upload[i].name + '\n';
+                fileNames.push(req.files.upload[i].name);
+            }
+        }
     }
     
     var Email = require('email').Email;
@@ -428,7 +436,7 @@ function(req, res) {
             console.log(err);
         }
     });
-    res.render('upload/uploadcomplete', { files: req.files.upload });
+    res.render('upload/uploadcomplete', { files: fileNames });
 });
 
 app.get('/upload/uploadcomplete',
