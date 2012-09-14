@@ -1,7 +1,8 @@
 var express = require('express') ,
   stylus = require('stylus'),
   fs = require('fs'),
-  nib = require('nib');
+  nib = require('nib'),
+  RedisStore = require('connect-redis')(express);
 
 var app = module.exports = express.createServer();
 
@@ -15,9 +16,11 @@ app.configure(function(){
   app.use(express.logger());
   app.use(express.bodyParser({uploadDir: __dirname + '/public/uploads'}));
   app.use(express.methodOverride());
-  app.use(express.cookieParser());
+  app.use(express.cookieParser('keyboard cat'));
   app.use(express.session({
-    secret: "north mountain road"
+    secret:"highlandpointe2012",
+    maxAge: new Date(Date.now() + 3600000),
+    store: new RedisStore
   }));
 
   app.use(app.router);
