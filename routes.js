@@ -2,6 +2,7 @@ app = module.parent.exports.app;
 
 /* Controller routes that basically view a static page */
 var eventcalendar = require('./controllers/eventcalendar');
+var kiddiekapers = require('./controllers/kiddiekapers');
 var contacts = require('./controllers/contacts');
 var tennis = require('./controllers/tennis');
 var pool = require('./controllers/pool');
@@ -22,6 +23,7 @@ var post = require('./controllers/post');
 var classifieds = require('./controllers/classifieds');
 
 app.get('/eventcalendar', eventcalendar.index);
+app.get('/kiddiekapers', kiddiekapers.index);
 app.get('/contacts', contacts.index);
 app.get('/tennis', tennis.index);
 app.get('/pool', pool.index);
