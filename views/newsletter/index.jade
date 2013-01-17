@@ -12,7 +12,7 @@ html
       ul
         li: a(href='#tabs-1') Newsletter
         li: a(href='#tabs-2') Classified Ad Info
-        li: a(href='/issues') Issues
+        li: a(href='#tabs-3') Issues
       div#tabs-1
         table(border='0', cellspacing='0', cellpadding='0', width='100%', nof='LY')
           tr(valign='TOP', align='CENTER')
@@ -339,3 +339,9 @@ html
                     o:p
                 p.MsoNormal
                   o:p
+      div#tabs-3
+        table(border='0', cellspacing='0', cellpadding='0', width='100%', style='vertical-align:text-top;')
+          each file in files
+            tr(style='vertical-align:text-top')
+              td(style='padding-bottom:5px')
+                a(href='issues/#{file}') #{file}

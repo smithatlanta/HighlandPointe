@@ -12,7 +12,7 @@ html
       ul
         li: a(href='#tabs-1') Board of Directors
         li: a(href='#tabs-2') Job Descriptions
-        li: a(href='/minutes') Minutes       
+        li: a(href='#tabs-3') Board Meeting Minutes       
       div#tabs-1
         table(border='0', cellspacing='0', cellpadding='0', width='100%', nof='LY')
           tr
@@ -154,3 +154,9 @@ html
                   | meetings via signage, home page and Pipeline. Proofread/approve all outgoing HPRA,
                   | Inc. correspondence, Pipeline articles, and web site content. Direct and work closely
                   | with HP’s office administrative assistant.
+      div#tabs-3
+        table(border='0', cellspacing='0', cellpadding='0', width='100%', style='vertical-align:text-top;')
+          each file in files
+            tr(style='vertical-align:text-top')
+              td(style='padding-bottom:5px')
+                a(href='minutes/#{file}') #{file}

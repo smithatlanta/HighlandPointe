@@ -1,3 +1,7 @@
+var fs = require('fs');
+
 exports.index = function(req, res){
-  res.render('newsletter/index', { title: 'Highland Pointe Online' });
+	fs.readdir('public/issues', function(err, data){
+		res.render('newsletter/index', { title: 'Highland Pointe Online', "files": data });
+	});
 };
