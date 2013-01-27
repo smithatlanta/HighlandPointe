@@ -3,9 +3,9 @@ html
 	head
 		title Main
 	body
-		#topmain
+		#topmain(style="padding:10px;")
 			table(border='0', cellspacing='0', cellpadding='0', width='100%', style='vertical-align:text-top;')
 				each post in posts
 					tr(style='vertical-align:text-top')
-						td(width='300px', style='padding-bottom:20px')
+						td(width='100%', style='padding-bottom:20px')
 							!= partial('post/post', {post: post})

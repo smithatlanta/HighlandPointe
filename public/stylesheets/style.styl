@@ -13,7 +13,6 @@ gradient(a, b)
   background -webkit-gradient(linear, left top, left bottom, from(a), to(b))
 
 header-border()
-  background back-color
   border-style solid
   border-color div-border-color
   border-width 1px
@@ -24,8 +23,6 @@ font-adjust(n)
 
 h3-adjust()
   color white
-  height 20px
-  top -15px
   font-family:Arial, Helvetica, Utkal, sans-serif
 
 soc-image-adjust()
@@ -41,65 +38,35 @@ text
 
 a
   font-adjust(14px)
+  padding-left 5px
 
 p
   font-adjust(14px)
 
 #top
-  position absolute
+  position relative
   top 2px
-  left 10px
   height 135px
-  width 1014px
   border-style solid
   border-color div-border-color
   border-width 1px
   background-color white
   border-radius(0px)
 
-#left
-  position absolute
-  top 142px
-  left 10px
-  height 2000px
-  width 190px
-
-#center
-  position absolute
-  top 142px
-  left 202px
-  height 2000px
-  width 629px
-  header-border()
-  border-radius(0px)
-
-#right
-  position absolute
-  top 142px
-  left 835px
-  height 2000px
-  width 190px  
-  header-border()
-  border-radius(0px)
-
 #topleft
   position relative
-  top 10px
-  left 20px
+  width 100%
 
 #lgtop1
   position relative
   
 #topcenter
   position relative
-  top 10px
-  left 200px
+  width 100%
 
 #lgtopmain1
   position relative
   height 110px
-  width 210px
-  top -100px
   border-style solid
   border-width 2px
   border-color grey
@@ -107,9 +74,6 @@ p
 #lgtopmain2
   position relative
   height 110px
-  width 210px
-  top -100px
-  left 10px
   border-style solid
   border-width 2px
   border-color grey
@@ -117,26 +81,20 @@ p
 #lgtopmain3
   position relative
   height 110px
-  width 210px
-  top -100px
-  left 20px
   border-style solid
   border-width 2px
   border-color grey
 
 #topright
   position relative
-  top -100px
-  left 900px
+  width 100%
 
 #lgtopsoc1
   position relative
-  top -95px  
   soc-image-adjust()
   
 #lgtopsoc2
   position relative
-  top -95px 
   soc-image-adjust()
 
 #spacer
@@ -144,83 +102,90 @@ p
 
 #leftresourcesheader
   position relative
-  background-color white
-  height 400px
+  width 100%
+  gradient(#55aaee, #003366)
   header-border()
   border-radius(0px)
 
 #h3leftresources
   position relative
   h3-adjust()
+  width 100%
   background back-h3-color
   gradient(#55aaee, #003366)
   border-radius(0px)
+  font-adjust(14px)
   padding-left 5px
 
 #leftresourcesbody
   position relative
+  width 100%  
   background-color white
   overflow scroll
-  top -25px
-  left 10px
-  height 370px
-  width 172px
   font-adjust(12px)
 
 #leftupcomingheader
   position relative
-  height 1590px
+  width 100%
+  gradient(#55aaee, #003366)
   header-border()
   border-radius(0px)
 
 #h3leftupcoming
   position relative
   h3-adjust()
+  width 100%
   background back-h3-color
   gradient(#55aaee, #003366)
   border-radius(0px)
-  padding-left 5px
+  font-adjust(14px)
+  padding-left 5px  
 
 #leftupcomingbody
   position relative
-  left 2px
-  top -25px
-  height 340px
+  width 100%  
+  background-color white
 
 #centerheader
   position relative
+  width 100%
+  gradient(#55aaee, #003366)
+  header-border()
+  border-radius(0px)
 
 #h3centergoings
   position relative
   h3-adjust()
+  width 100%  
   background div-border-color
   gradient(#55aaee, #003366)
   border-radius(0px)
-  padding-left 5px
+  font-adjust(14px)
+  padding-left 5px  
 
 #centerbody
   position relative
-  top -15px
-  left 10px
-  height 600px
-  width 610px
+  width 100%  
+  background-color white
+  height 807px
+  overflow scroll
 
 #topmain
-  -moz-column-count auto
+  -moz-column-count 2
   -moz-column-gap 20px
   -moz-column-span all
   -moz-column-fill auto
-  -moz-column-width 200px
-  -webkit-column-count auto
+  -moz-column-width 50%
+  -webkit-column-count 2
   -webkit-column-gap 20px
   -webkit-column-span all
   -webkit-column-fill auto
-  -webkit-column-width 200px
-  column-count auto
+  -webkit-column-width 50%
+  column-count 2
   column-gap 20px
   column-span all
   column-fill auto
-  column-width 200px
+  column-width 50%
   margin 0 auto
 
 #bottomcentertop
@@ -237,24 +202,28 @@ p
 
 #rightheader
   position relative
+  width 100%
+  gradient(#55aaee, #003366)
+  header-border()
+  border-radius(0px)
 
 #h3right
   position relative
   h3-adjust()
+  width 100%
   background back-h3-color
   gradient(#55aaee, #003366)
   border-radius(0px)
+  font-adjust(14px)
   padding-left 5px
 
 #rightbody
   position relative
+  width 100%  
   background-color white
   overflow scroll
-  top -25px
-  left 10px
-  height 525px
-  width 172px
-  font-adjust(4px)
+  font-adjust(12px)
+  height 802px
 
 .labelEventHeader
   font-adjust(16px)

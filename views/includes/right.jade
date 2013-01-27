@@ -2,7 +2,7 @@ script
 	function aList(data) {
 		var advList = "";
 		for (var i in data) {            
-			advList += "</br></br>" + "<a href=" + data[i].referrer + ">" + data[i].textToDisplay + "</a>";         
+			advList += "<a href=" + data[i].referrer + ">" + data[i].textToDisplay + "</a><br/><br/>";         
 		}
 		return advList;
 	}
@@ -13,6 +13,11 @@ script
 			$('#rightbody').append(aList(data));
 		});
 	});
-#rightheader
-	h3(id='h3right') Sponsored Links
-	#rightbody
+table(border="0", cellspacing="0", cellpadding="0", style="width:100%")
+	tr
+		td(valign="top")	
+			#rightheader
+				span(id='h3right') Sponsored Links
+	tr
+		td(valign="top")
+			#rightbody(style="padding-top:5px")

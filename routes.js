@@ -42,7 +42,7 @@ app.get('/links', links.index);
 
 /* Database / Schema */
 var Mongoose = require('mongoose');
-var dbstring = '';
+var dbstring = 'mongodb://pinestraw1:pinestraw1@ds033897.mongolab.com:33897/hp';
 var db = Mongoose.connect(dbstring);
 require('./model/schema');
 var User = db.model('User');
