@@ -1,5 +1,5 @@
 back-color = white
-back-body-color = #C8C8C8
+back-body-color = white
 back-h3-color = white
 div-border-color = #2a6da9
 
@@ -118,11 +118,14 @@ p
   padding-left 5px
 
 #leftresourcesbody
+  padding-bottom 10px
   position relative
   width 100%  
-  background-color white
+  background-color #F0F0F0
   overflow scroll
   font-adjust(12px)
+  header-border()  
+  height 100%
 
 #leftupcomingheader
   position relative
@@ -142,9 +145,13 @@ p
   padding-left 5px  
 
 #leftupcomingbody
+  padding-top 5px
+  padding-bottom 5px
   position relative
-  width 100%  
-  background-color white
+  width 100%
+  header-border()  
+  background-color #F0F0F0
+  height 100%
 
 #centerheader
   position relative
@@ -167,21 +174,21 @@ p
   position relative
   width 100%  
   background-color white
-  height 807px
+  height 100%
   overflow scroll
 
 #topmain
-  -moz-column-count 2
+  -moz-column-count 1
   -moz-column-gap 20px
   -moz-column-span all
   -moz-column-fill auto
   -moz-column-width 50%
-  -webkit-column-count 2
+  -webkit-column-count 1
   -webkit-column-gap 20px
   -webkit-column-span all
   -webkit-column-fill auto
   -webkit-column-width 50%
-  column-count 2
+  column-count 1
   column-gap 20px
   column-span all
   column-fill auto
@@ -220,22 +227,15 @@ p
 #rightbody
   position relative
   width 100%  
-  background-color white
+  background-color #F0F0F0
   overflow scroll
   font-adjust(12px)
-  height 802px
-
-.labelEventHeader
-  font-adjust(16px)
-  font-weight:bold
-
-.labelEventHeaderDate
-  font-adjust(12px)
+  header-border()
+  height 100%
 
 .labelEventBody
   font-adjust(14px)
 
 .eventTable
   padding-top 5px
-  gradient(#F0F0F0, #F0F0F0)
   border-radius(5px)
