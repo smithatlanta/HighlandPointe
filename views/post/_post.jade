@@ -1,11 +1,11 @@
 table(border='0', cellspacing='0', cellpadding='0', width='100%',class='eventTable')
 	tr(style='vertical-align:text-top;')
 		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
-			h1(style="margin:0;padding:0;display:block") #{post.name}
+			h2(style="margin:0;padding:0;display:block") #{post.name}
 	tr
 		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
 			if(post.eventDate) 
-				case post.eventDate.getDay()
+				case post.eventDate.getUTCDay()
 					when 0
 						h4(style="margin:0;padding:0;display:block") Sunday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
 					when 1
@@ -19,7 +19,7 @@ table(border='0', cellspacing='0', cellpadding='0', width='100%',class='eventTab
 					when 5
 						h4(style="margin:0;padding:0;display:block") Friday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
 					when 6
-						h4(style="margin:0;padding:0;display:block")Saturday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
+						h4(style="margin:0;padding:0;display:block") Saturday, #{post.eventDate.getUTCMonth()+1}/#{post.eventDate.getUTCDate()}/#{post.eventDate.getUTCFullYear()}
 	tr
 		td(style='padding-left:5px;padding-right:5px;vertical-align:text-top;')
 			p(class='labelEventBody', style='white-space:pre;')
