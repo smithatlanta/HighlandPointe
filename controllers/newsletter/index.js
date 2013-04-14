@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 exports.index = function(req, res){
-	fs.readdir('./public/issues', function(err, data){
+	fs.readdir('/home/masmith/projects/HighlandPointe/public/issues', function(err, data){
 		if (err)
 			console.log(err);
 		data.sort();
