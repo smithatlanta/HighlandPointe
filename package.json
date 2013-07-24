@@ -3,7 +3,8 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "express": "v2.5.x"
+      "nodefly" : "stable"
+    , "express": "v2.5.x"
     , "jade": "v0.26.1"
     , "stylus": "latest"
     , "mongoose": "2.6.6"

@@ -1,3 +1,13 @@
+var options = {
+  // time in ms when the event loop is considered blocked
+  blockThreshold: 10
+};
+require('nodefly').profile(
+    '',
+    '',
+    options // optional
+);
+
 var express = require('express') ,
   stylus = require('stylus'),
   fs = require('fs'),
