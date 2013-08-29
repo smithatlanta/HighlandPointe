@@ -3,7 +3,7 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "nodefly" : "stable"
+      "strong-agent" : "stable"
     , "express": "v2.5.x"
     , "jade": "v0.26.1"
     , "stylus": "latest"

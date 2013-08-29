@@ -2,7 +2,7 @@ var options = {
   // time in ms when the event loop is considered blocked
   blockThreshold: 10
 };
-require('nodefly').profile(
+require('strong-agent').profile(
     '',
     '',
     options // optional
