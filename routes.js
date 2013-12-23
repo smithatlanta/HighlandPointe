@@ -113,7 +113,7 @@ app.post('/search',
 function(req, res) {
     var solr = require('solr-client');
     console.log(req.body.search);
-    var client = solr.createClient("highlandpointe.org", "8983", "collection1", "/solr");
+    var client = solr.createClient("localhost", "8983", "collection1", "/solr");
     var query = client.createQuery()
     .q(req.body.search)
     .dismax()
