@@ -17,6 +17,7 @@ var lots = require('./controllers/map/lots');
 var faq = require('./controllers/faq');
 var legalstuff = require('./controllers/legalstuff');
 var reference = require('./controllers/reference');
+var search = require('./controllers/search');
 var links = require('./controllers/links');
 var users = require('./controllers/users');
 var post = require('./controllers/post');
@@ -38,11 +39,12 @@ app.get('/map/lots', lots.index);
 app.get('/faq', faq.index);
 app.get('/legalstuff', legalstuff.index);
 app.get('/reference', reference.index);
+app.get('/search', search.index);
 app.get('/links', links.index);
 
 /* Database / Schema */
 var Mongoose = require('mongoose');
-var dbstring = '';
+var dbstring = 'mongodb://smith2012:smith2012@ds033897.mongolab.com:33897/hp';
 var db = Mongoose.connect(dbstring);
 require('./model/schema');
 var User = db.model('User');
@@ -96,7 +98,8 @@ function(req, res) {
 app.get('/sessions/new',
 function(req, res) {
     res.render('sessions/new', {
-        redir: req.query.redir
+        redir: req.query.redir,
+        title: "Highland Pointe Online"
     });
 });
 
@@ -104,6 +107,44 @@ app.get('/sessions/destroy',
 function(req, res) {
     delete req.session.user;
     res.redirect('/sessions/new');
+});
+
+app.post('/search',
+function(req, res) {
+    var solr = require('solr-client');
+    console.log(req.body.search);
+    var client = solr.createClient("highlandpointe.org", "8983", "collection1", "/solr");
+    var query = client.createQuery()
+    .q(req.body.search)
+    .dismax()
+    .qf({title : 0.2 , content : 0.5})
+    .start(0)
+    .rows(500)
+    .sort({url: 'desc', score: 'desc'})
+    .restrict(['url', 'title', 'content']);
+    client.search(query,function(err, obj){
+        if(err){
+            console.log(err);
+        }else{
+            var count = obj.response.numFound;
+            if(count > 0){
+                var z= [];
+                for(var x=0; x<count; x++)
+                {
+                    var d = {};
+                    d.url = obj.response.docs[x].url;
+                    d.title = obj.response.docs[x].title;
+                    d.content = obj.response.docs[x].content.slice(0, 300) + "...";
+                    z.push(d);
+                }
+                res.render('search/index', { results : z, title: "Highland Pointe Online - Search" });
+            }
+            else
+            {
+                console.log("no docs found");
+            }
+        }
+    });
 });
 
 /* Events / Activities management */
@@ -245,7 +286,8 @@ function(req, res) {
         Classified.count({}, function( err, count){
         });
         res.render('classifieds/index', {
-            classifieds: classifieds
+            classifieds: classifieds,
+            title: "Highland Pointe Online - Classifieds"
         });
     });
 });
@@ -388,7 +430,8 @@ function(req, res) {
         Post.count({}, function( err, count){
         });
         res.render('post/index', {
-            posts: posts
+            posts: posts,
+            title: "Highland Pointe Online"
         });
     });
 });
@@ -408,7 +451,7 @@ function(req, res) {
 
 app.get('/upload',
 function(req, res) {
-    res.render('upload/submit');
+    res.render('upload/submit', {title: "Highland Pointe Online"});
 });
 
 app.post('/upload',

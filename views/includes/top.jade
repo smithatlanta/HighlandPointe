@@ -14,3 +14,7 @@ table(id="top", border="0", cellspacing="0", cellpadding="0", style="width:100%"
 					img(id='lgtopsoc1', src='/images/facebook_badge.png')
 				a(href='https://twitter.com/#!/HighlandPteEC', target="_blank")
 					img(id='lgtopsoc2', src='/images/twitter_badge.png')
+				br
+				form(action='/search', method='post')
+					input(type='text', id='search', name='search', style='width:150px')
+					input(type='submit', value="Search Site")

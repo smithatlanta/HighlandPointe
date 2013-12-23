@@ -6,6 +6,6 @@ exports.index = function(req, res){
 			console.log(err);
 		data.sort();
 		data.reverse();
-		res.render('board/index', { title: 'Highland Pointe Online', "files": data });
+		res.render('board/index', { title: 'Highland Pointe Online - Board', "files": data });
 	});
 };

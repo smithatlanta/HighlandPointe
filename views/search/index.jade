@@ -1,0 +1,11 @@
+!!! 5
+html
+	head
+		title Search Results
+		script
+			$('#h3centergoings').text("Search Results");
+	body
+		#topmain(style="padding:10px;")
+			ul(border='0', cellspacing='0', cellpadding='0', width='100%',style='vertical-align:text-top;')
+				each result in results
+					!= partial('search/result', {result: result})

@@ -1,3 +1,3 @@
 exports.index = function(req, res){
-  res.render('kiddiekapers/index', { title: 'Highland Pointe Online' });
+  res.render('kiddiekapers/index', { title: 'Highland Pointe Online - Kiddie Kapers' });
 };

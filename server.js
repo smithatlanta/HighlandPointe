@@ -1,11 +1,10 @@
 var options = {
-  // time in ms when the event loop is considered blocked
   blockThreshold: 10
 };
 require('strong-agent').profile(
-    '',
-    '',
-    options // optional
+  'da69bb3204bb8172052d1c710f9e4a7d',
+  'highlandpointe',
+  options // optional
 );
 
 var express = require('express') ,
