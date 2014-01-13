@@ -204,7 +204,7 @@ function(req, res) {
       function(err, posts) {
         Post.count({}, function( err, count){
         });
-        res.render('post/admin', {
+        res.render('post/admin', { title: "Admin",
             posts: posts
         });
     });
@@ -212,7 +212,7 @@ function(req, res) {
 
 app.get('/post/new', requiresLogin,
 function(req, res) {
-    res.render('post/new', {
+    res.render('post/new', { title: "Admin",
         post: req.body && req.body.post || new Post()
     });
 });
@@ -224,7 +224,7 @@ function(req, res) {
         if (err) {
             throw err;
         }
-        res.render('post/edit', {
+        res.render('post/edit', { title: "Admin",
             post: post, id: req.params.id
         });
     });
