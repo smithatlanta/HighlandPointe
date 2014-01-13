@@ -383,14 +383,14 @@ function(req, res) {
         Advertiser.count({}, function( err, count){
         });
         res.render('adv/admin', {
-            advs: advs
+            advs: advs, title: "Admin"
         });
     });
 });
 
 app.get('/adv/new', requiresLogin,
 function(req, res) {
-    res.render('adv/new', {
+    res.render('adv/new', { title: "Admin",
         advertiser: req.body && req.body.advertiser || new Advertiser()
     });
 });
@@ -402,7 +402,7 @@ function(req, res) {
         if (err) {
             throw err;
         }
-        res.render('adv/edit', {
+        res.render('adv/edit', {title: "Admin",
             advertiser: advertiser, id: req.params.id
         });
     });
