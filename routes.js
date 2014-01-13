@@ -299,7 +299,7 @@ function(req, res) {
       function(err, classifieds) {
         Classified.count({}, function( err, count){
         });
-        res.render('classifieds/admin', {
+        res.render('classifieds/admin', { title: "Admin",
             classifieds: classifieds
         });
     });
@@ -307,7 +307,7 @@ function(req, res) {
 
 app.get('/classifieds/new', requiresLogin,
 function(req, res) {
-    res.render('classifieds/new', {
+    res.render('classifieds/new', { title: "Admin",
         classified: req.body && req.body.classified || new Classified()
     });
 });
@@ -319,7 +319,7 @@ function(req, res) {
         if (err) {
             throw err;
         }
-        res.render('classifieds/edit', {
+        res.render('classifieds/edit', { title: "Admin",
             classified: classified, id: req.params.id
         });
     });
