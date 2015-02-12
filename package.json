@@ -11,7 +11,7 @@
     , "nib": "latest"
     , "email": "latest"
     , "connect-flash": "latest"
-    , "connect-redis": "latest"
+    , "connect-redis": "1.4.0"
     , "solr-client": "latest"
   }
 }
