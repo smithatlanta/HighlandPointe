@@ -29,7 +29,9 @@ app.configure(function(){
   app.use(express.session({
     secret:"highlandpointe2012",
     maxAge: new Date(Date.now() + 3600000),
-    store: new RedisStore
+    store: new RedisStore({
+    host: 'localhost',
+    port: 6379})
   }));
 
   app.use(app.router);
