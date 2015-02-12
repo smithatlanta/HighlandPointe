@@ -1,11 +1,11 @@
 var options = {
   blockThreshold: 10
 };
-require('strong-agent').profile(
-  'da69bb3204bb8172052d1c710f9e4a7d',
-  'highlandpointe',
-  options // optional
-);
+// require('strong-agent').profile(
+//   'da69bb3204bb8172052d1c710f9e4a7d',
+//   'highlandpointe',
+//   options // optional
+// );
 
 var express = require('express') ,
   stylus = require('stylus'),
