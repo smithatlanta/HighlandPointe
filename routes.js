@@ -89,7 +89,8 @@ function(req, res) {
         } else {
             req.flash('warn', 'Login failed');
             res.render('sessions/new', {
-                redir: req.body.redir
+                redir: req.body.redir,
+                title: "Highland Pointe Online"                
             });
         }
     });
