@@ -27,7 +27,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('keyboard cat'));
   app.use(express.session({
-    secret:"Pinestraw1",
+    secret:"highlandpointe2012",
     maxAge: new Date(Date.now() + 3600000),
     store: new RedisStore({
     host: 'localhost',
