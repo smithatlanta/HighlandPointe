@@ -23,7 +23,7 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.logger());
-  app.use(express.bodyParser({uploadDir: __dirname + '/public/uploads'}));
+  app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser('keyboard cat'));
   app.use(express.session({
@@ -68,9 +68,11 @@ app.dynamicHelpers({
 
 process.setMaxListeners(0);
 
-app.listen(80, function() {
+app.listen(3000, function() {
 	console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
+
+app.rootpath = __dirname;
 
 module.exports.app = app;
 routes = require('./routes');

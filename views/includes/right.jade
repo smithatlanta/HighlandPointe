@@ -8,7 +8,7 @@ script
 	}
 	$(document).ready(function() {
 		$.ajax({
-			url: "./advertisers"
+			url: "/advertisers"
 		}).done(function ( data ) {
 			$('#rightbody').append(aList(data));
 		});

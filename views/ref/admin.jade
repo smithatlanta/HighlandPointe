@@ -1,0 +1,30 @@
+!!! 5
+html
+	head
+		title Administer Reference Files
+		script
+			$('#h3centergoings').text("Administer Reference Files");
+			$(document).ready(function() {
+				$('#refsddl').bind('click', function() {
+					var selIndex  = $('#refsddl')[0].selectedIndex;
+					var selValue = $('#refsddl')[0].options[selIndex].value;					
+				});
+			});	
+	body
+		form(action='/ref/delete', method='post')
+			br
+			b ** Make sure you note the filename(if deleting and adding a new one) as the code expects it to be the same(including capitalization)
+			br
+			select(name='refsddl')
+				each ref in refs
+					option(value=ref)= ref
+			&nbsp;
+			&nbsp;				
+			input(type='submit', value='Delete Reference File')
+			br
+			br
+			br			
+		form(action='/ref/upload', method='post', enctype='multipart/form-data')
+			input(type="file", name="reference")
+			br
+			input(type='submit', value="Upload Reference File")

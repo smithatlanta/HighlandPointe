@@ -1,0 +1,30 @@
+!!! 5
+html
+	head
+		title Administer Minutes Files
+		script
+			$('#h3centergoings').text("Administer Minutes Files");
+			$(document).ready(function() {
+				$('#minsddl').bind('click', function() {
+					var selIndex  = $('#minsddl')[0].selectedIndex;
+					var selValue = $('#minsddl')[0].options[selIndex].value;					
+				});
+			});	
+	body
+		form(action='/min/delete', method='post')
+			br
+			b ** Please make sure to upload the file with the format YYYY-MM-DD so it sorts correctly
+			br
+			select(name='minsddl')
+				each min in mins
+					option(value=min)= min
+			&nbsp;
+			&nbsp;				
+			input(type='submit', value='Delete Minutes File')
+			br
+			br
+			br			
+		form(action='/min/upload', method='post', enctype='multipart/form-data')
+			input(type="file", name="minutes")
+			br
+			input(type='submit', value="Upload Minutes File")

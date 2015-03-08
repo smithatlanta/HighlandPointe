@@ -1,0 +1,30 @@
+!!! 5
+html
+	head
+		title Administer Pipeline Files
+		script
+			$('#h3centergoings').text("Administer Pipeline Files");
+			$(document).ready(function() {
+				$('#pipesddl').bind('click', function() {
+					var selIndex  = $('#pipesddl')[0].selectedIndex;
+					var selValue = $('#pipesddl')[0].options[selIndex].value;					
+				});
+			});	
+	body
+		form(action='/pipe/delete', method='post')
+			br
+			b ** Please make sure to upload the file with the format YYYY-MM-DD so it sorts correctly
+			br
+			select(name='pipesddl')
+				each pipe in pipes
+					option(value=pipe)= pipe
+			&nbsp;
+			&nbsp;				
+			input(type='submit', value='Delete Pipeline File')
+			br
+			br
+			br			
+		form(action='/pipe/upload', method='post', enctype='multipart/form-data')
+			input(type="file", name="issue")
+			br
+			input(type='submit', value="Upload Pipeline File")

@@ -3,8 +3,7 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "strong-agent" : "stable"
-    , "express": "v2.5.x"
+    "express": "v2.5.x"
     , "jade": "v0.26.1"
     , "stylus": "latest"
     , "mongoose": "2.6.6"

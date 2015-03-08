@@ -1,4 +1,6 @@
-app = module.parent.exports.app;
+var app = module.parent.exports.app;
+var fs = require('fs');
+var util = require('util');
 
 /* Controller routes that basically view a static page */
 var eventcalendar = require('./controllers/eventcalendar');
@@ -21,6 +23,7 @@ var search = require('./controllers/search');
 var links = require('./controllers/links');
 var users = require('./controllers/users');
 var post = require('./controllers/post');
+var mgmt = require('./controllers/mgmt');
 var classifieds = require('./controllers/classifieds');
 
 app.get('/eventcalendar', eventcalendar.index);
@@ -41,6 +44,8 @@ app.get('/legalstuff', legalstuff.index);
 app.get('/reference', reference.index);
 app.get('/search', search.index);
 app.get('/links', links.index);
+app.get('/mgmt', mgmt.index);
+
 
 /* Database / Schema */
 var Mongoose = require('mongoose');
@@ -60,6 +65,25 @@ function requiresLogin(req, res, next) {
     } else {
         res.redirect('/sessions/new?redir=' + req.url);
     }
+}
+
+function getFiles(directory, next){
+    fs.readdir(app.rootpath + "/public/" + directory, function(err, data){
+        if (err){
+            console.log(err);
+        }
+        data.sort();
+        next(data);
+    });
+}
+
+function delFile(directory, file, next){
+    fs.unlink(app.rootpath + "/public/" + directory + "/" + file, function(err, data){
+        if (err){
+            console.log(err);
+        }
+        next();
+    });
 }
 
 /* Creating admins for website */
@@ -377,6 +401,7 @@ function(req, res) {
 });
 
 /* page routes */
+
 app.get('/adv/admin', requiresLogin,
 function(req, res) {
     Advertiser.find({}).sort('sortOrder', 'ascending').execFind(
@@ -408,6 +433,196 @@ function(req, res) {
         });
     });
 });
+
+/* reference */
+
+app.get('/ref/admin', requiresLogin,
+function(req, res) {
+    getFiles("reference", function(data){
+        res.render('ref/admin', {
+            refs: data, title: "Admin"
+        });
+    });
+});
+
+// upload 
+
+app.post('/ref/upload', requiresLogin,
+    function(req, res) 
+    {
+        var fileName = req.files.reference.name;
+        if(fileName === ""){
+            getFiles("reference", function(data){
+                res.render('ref/admin', {
+                    refs: data, title: "Admin"
+                });
+            });
+        }
+        else{
+            req.setEncoding("binary");
+            var filePath = __dirname + "/public/reference/";
+            var fileStream = null;
+            var serverPath = filePath + req.files.reference.name;
+            var is = fs.createReadStream(req.files.reference.path);
+            var os = fs.createWriteStream(serverPath);
+
+            is.pipe(os);
+
+            is.on("end", function() {
+                getFiles("reference", function(data){
+                    res.render('ref/admin', {
+                        refs: data, title: "Admin"
+                    });
+                });
+            });
+        }
+    }
+);
+
+// delete
+
+app.post('/ref/delete', requiresLogin,
+    function(req, res) 
+    {
+        delFile("reference", req.body.refsddl, function(){
+            getFiles("reference", function(data){
+                res.render('ref/admin', {
+                    refs: data, title: "Admin"
+                });
+            });
+        });
+    }
+);
+
+
+/* pipleine */
+
+app.get('/pipe/admin', requiresLogin,
+function(req, res) {
+    getFiles("issues", function(data){
+        data.reverse();
+        res.render('pipe/admin', {
+            pipes: data, title: "Admin"
+        });
+    });
+});
+
+// upload 
+
+app.post('/pipe/upload', requiresLogin,
+    function(req, res) 
+    {
+        var fileName = req.files.issue.name;
+        if(fileName === ""){
+            getFiles("issues", function(data){
+                data.reverse();                                    
+                res.render('pipe/admin', {
+                    pipes: data, title: "Admin"
+                });
+            });
+        }
+        else{
+            req.setEncoding("binary");
+            var filePath = __dirname + "/public/issues/";
+            var fileStream = null;
+            var serverPath = filePath + req.files.issue.name;
+            var is = fs.createReadStream(req.files.issue.path);
+            var os = fs.createWriteStream(serverPath);
+
+            is.pipe(os);
+
+            is.on("end", function() {
+                getFiles("issues", function(data){
+                    data.reverse();                    
+                    res.render('pipe/admin', {
+                        pipes: data, title: "Admin"
+                    });
+                });
+            });
+        }
+    }
+);
+
+// delete
+
+app.post('/pipe/delete', requiresLogin,
+    function(req, res) 
+    {
+        delFile("issues", req.body.pipesddl, function(){
+            getFiles("issues", function(data){
+                data.reverse();
+                res.render('pipe/admin', {
+                    pipes: data, title: "Admin"
+                });
+            });
+        });
+    }
+);
+
+
+/* minutes */
+
+app.get('/min/admin', requiresLogin,
+function(req, res) {
+    getFiles("minutes", function(data){
+        data.reverse();                                            
+        res.render('min/admin', {
+            mins: data, title: "Admin"
+        });
+    });
+});
+
+// upload 
+
+app.post('/min/upload', requiresLogin,
+    function(req, res) 
+    {
+        var fileName = req.files.minutes.name;
+        if(fileName === ""){
+            getFiles("minutes", function(data){
+                data.reverse();                                    
+                res.render('min/admin', {
+                    mins: data, title: "Admin"
+                });
+            });
+        }
+        else{
+            req.setEncoding("binary");
+            var filePath = __dirname + "/public/minutes/";
+            var fileStream = null;
+            var serverPath = filePath + req.files.minutes.name;
+            var is = fs.createReadStream(req.files.minutes.path);
+            var os = fs.createWriteStream(serverPath);
+
+            is.pipe(os);
+
+            is.on("end", function() {
+                getFiles("minutes", function(data){
+                    data.reverse();                    
+                    res.render('min/admin', {
+                        mins: data, title: "Admin"
+                    });
+                });
+            });
+        }
+    }
+);
+
+// delete
+
+app.post('/min/delete', requiresLogin,
+    function(req, res) 
+    {
+        delFile("minutes", req.body.minsddl, function(){
+            getFiles("minutes", function(data){
+                data.reverse();
+                res.render('min/admin', {
+                    mins: data, title: "Admin"
+                });
+            });
+        });
+    }
+);
 
 /*  Main entry point */
 app.get('/',
@@ -483,10 +698,11 @@ function(req, res) {
             console.log(err);
         }
     });
-    res.render('upload/uploadcomplete', { files: fileNames });
+    res.render('upload/uploadcomplete', { files: fileNames, title: "Highland Pointe Online"});
 });
 
 app.get('/upload/uploadcomplete',
-function(req, res) {
-    res.render('upload/uploadcomplete');
-});
+    function(req, res) {
+        res.render('upload/uploadcomplete');
+    }
+);
