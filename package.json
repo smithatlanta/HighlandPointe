@@ -6,7 +6,7 @@
     "express": "v2.5.x"
     , "jade": "v0.26.1"
     , "stylus": "latest"
-    , "mongoose": "2.6.6"
+    , "mongoose": "2.x"
     , "nib": "latest"
     , "email": "latest"
     , "connect-flash": "latest"

@@ -49,7 +49,7 @@ app.get('/mgmt', mgmt.index);
 
 /* Database / Schema */
 var Mongoose = require('mongoose');
-var dbstring = 'mongodb://smith2012:smith2012@ds033897.mongolab.com:33897/hp';
+var dbstring = 'mongodb://smith2012:smith2012@localhost:27017/hp';
 var db = Mongoose.connect(dbstring);
 require('./model/schema');
 var User = db.model('User');
